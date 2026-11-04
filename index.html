@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economía Digital y Comercio Electrónico — Presentación</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+
+<style>
+:root {
+  --unam-blue: #0b3d91;
+  --unam-gold: #b8860b;
+  --ink: #1a1a1a;
+  --muted: #5a6470;
+  --accent: #0b3d91;
+  --accent-soft: #e8eef8;
+  --line: #d7dde5;
+  --warn: #b03030;
+  --ok: #0f7b52;
+}
+
+.reveal {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  color: var(--ink);
+}
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 0 0.35em 0;
+  font-weight: 700;
+}
+.reveal h1 { font-size: 2.05em; }
+.reveal h2 { font-size: 1.5em; }
+.reveal h3 { font-size: 1.05em; }
+.reveal p { line-height: 1.4; margin: 0.45em 0; }
+.reveal strong { color: var(--unam-blue); }
+.reveal em { color: var(--ink); font-style: italic; }
+.reveal a { color: var(--unam-blue); }
+
+/* ── Headline rule ───────────────────────────────────── */
+.reveal .slide-title { position: relative; padding-bottom: 0.28em; }
+.reveal .slide-title::after {
+  content: "";
+  position: absolute; left: 0; bottom: 0;
+  width: 3.2em; height: 4px;
+  background: var(--unam-gold);
+}
+
+/* ── Cover ────────────────────────────────────────────── */
+.cover {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0;
+  text-align: left;
+  height: 100%;
+}
+.cover .brandbar {
+  display: flex; align-items: center; gap: 0.9em;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.7em;
+}
+.cover .brandbar img { height: 3.1em; width: auto; object-fit: contain; }
+.cover .brandbar .sep { width: 1px; height: 3.1em; background: var(--line); }
+.cover .brandbar .brandtext { line-height: 1.25; }
+.cover .brandtext .uni { font-size: 0.42em; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+.cover .brandtext .fac { font-size: 0.52em; font-weight: 600; color: var(--ink); }
+.cover .eyebrow {
+  margin-top: 1.5em;
+  font-size: 0.5em; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--unam-gold); font-weight: 700;
+}
+.cover h1 { margin-top: 0.25em; align-self: end; }
+.cover .subtitle { font-size: 0.66em; color: var(--muted); margin-top: 0.4em; align-self: start; }
+.cover .meta {
+  margin-top: auto;
+  display: flex; gap: 2.6em; flex-wrap: wrap;
+  padding-top: 0.9em; border-top: 1px solid var(--line);
+  font-size: 0.5em; line-height: 1.5;
+}
+.cover .meta .k { color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.82em; display: block; }
+.cover .meta .v { font-weight: 600; }
+
+/* ── Section divider ──────────────────────────────────── */
+.section-slide { color: #fff; }
+.reveal .slides section.section-slide { justify-content: center; align-items: flex-start; }
+.reveal .slides section.section-slide > * { flex: 0 0 auto; width: 100%; }
+.section-slide h2 { color: #fff; font-size: 1.65em; }
+.section-slide .secnum {
+  font-size: 0.55em; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--unam-gold); font-weight: 700; margin-bottom: 0.5em;
+}
+.section-slide .seclead { font-size: 0.62em; color: #cdd9ee; max-width: 21em; line-height: 1.45; }
+.section-slide .slide-title::after { background: var(--unam-gold); }
+
+/* ── Layout helpers ───────────────────────────────────── */
+.cols { display: grid; gap: 1.6em; align-items: start; margin-top: 0.4em; }
+.cols-2 { grid-template-columns: 1fr 1fr; }
+.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.cols-40-60 { grid-template-columns: 0.42fr 0.58fr; }
+.cols-55-45 { grid-template-columns: 0.55fr 0.45fr; }
+.cols-60-40 { grid-template-columns: 0.6fr 0.4fr; }
+.cols-65-35 { grid-template-columns: 0.65fr 0.35fr; }
+
+.lead { font-size: 0.78em; color: var(--muted); line-height: 1.5; margin-bottom: 0.9em; }
+.small { font-size: 0.6em; }
+.tiny { font-size: 0.5em; }
+
+/* ── Stat tiles ───────────────────────────────────────── */
+.stats { display: grid; gap: 0.7em; }
+.stats-3 { grid-template-columns: repeat(3, 1fr); }
+.stats-4 { grid-template-columns: repeat(4, 1fr); }
+.stat {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.55em 0.7em;
+  border-top: 3px solid var(--unam-blue);
+}
+.stat .v { font-size: 1.5em; font-weight: 700; color: var(--unam-blue); line-height: 1.1; }
+.stat .v .u { font-size: 0.5em; font-weight: 600; color: var(--muted); }
+.stat .k { font-size: 0.46em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.09em; margin-top: 0.3em; }
+.stat.gold { border-top-color: var(--unam-gold); }
+.stat.gold .v { color: var(--unam-gold); }
+/* Stat embebido en una tarjeta: sin marco propio. */
+.card .stat { border: none; border-top: none; background: transparent; padding: 0.3em 0 0.1em; border-radius: 0; }
+.card .stat .v { font-size: 1.35em; }
+.stat.warn { border-top-color: var(--warn); }
+.stat.warn .v { color: var(--warn); }
+.stat.ok { border-top-color: var(--ok); }
+.stat.ok .v { color: var(--ok); }
+
+/* ── Bullet list ──────────────────────────────────────── */
+ul.tight { margin: 0; padding-left: 1.1em; font-size: 0.72em; line-height: 1.5; }
+ul.tight li { margin-bottom: 0.42em; }
+ul.tight li::marker { color: var(--unam-gold); }
+ul.plain { list-style: none; padding-left: 0; }
+ul.plain li { padding-left: 1.4em; position: relative; }
+ul.plain li::before {
+  content: ""; position: absolute; left: 0; top: 0.52em;
+  width: 7px; height: 7px; border-radius: 2px; background: var(--unam-blue);
+}
+
+/* ── Cards ────────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.75em 0.9em;
+}
+.card.tinted { background: var(--accent-soft); border-color: #c9d8ef; }
+.card h4 { margin: 0 0 0.35em 0; font-size: 0.62em; color: var(--unam-blue); letter-spacing: 0.03em; }
+.card p { font-size: 0.56em; margin: 0.2em 0; line-height: 1.45; }
+.card .badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.7em; height: 1.7em; border-radius: 50%;
+  background: var(--unam-blue); color: #fff; font-size: 0.52em; font-weight: 700;
+  margin-bottom: 0.4em;
+}
+.card.alert { border-left: 4px solid var(--warn); }
+.card.alert h4 { color: var(--warn); }
+.card.good { border-left: 4px solid var(--ok); }
+.card.good h4 { color: var(--ok); }
+.card.goldline { border-left: 4px solid var(--unam-gold); }
+.card.goldline h4 { color: #8a6508; }
+
+/* ── Two-sided market diagram ──────────────────────────── */
+.market {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.6em;
+  margin: 0.4em 0 0.2em;
+}
+.market .side {
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 0.55em 0.7em; background: #fff;
+}
+.market .side h5 { margin: 0 0 0.25em 0; font-size: 0.54em; color: var(--unam-blue); }
+.market .side .cnt { font-size: 0.44em; color: var(--muted); }
+.market .side .prices { margin-top: 0.4em; font-size: 0.5em; }
+.market .side .prices .row { display: flex; justify-content: space-between; padding: 0.18em 0; border-top: 1px dashed var(--line); }
+.market .side .prices .row span:last-child { font-weight: 700; color: var(--unam-blue); }
+.market .side.loss .prices .row span:last-child { color: var(--warn); }
+.market .side.profit .prices .row span:last-child { color: var(--ok); }
+.market .hub { text-align: center; }
+.market .hub .pl {
+  background: var(--unam-blue); color: #fff; border-radius: 10px;
+  padding: 0.55em 0.5em; font-size: 0.5em; font-weight: 700; line-height: 1.25;
+}
+.market .hub .net { font-size: 0.42em; color: var(--muted); margin-top: 0.35em; line-height: 1.3; }
+.arrownote {
+  text-align: center; font-size: 0.5em; color: var(--muted);
+  margin-top: 0.4em; font-style: italic;
+}
+
+/* ── Cost structure comparison ────────────────────────── */
+.cost { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0.7em; align-items: center; margin: 0.4em 0; }
+.cost .box { border: 1px solid var(--line); border-radius: 10px; padding: 0.6em 0.75em; background: #fff; }
+.cost .box.old { border-left: 4px solid var(--muted); }
+.cost .box.new { border-left: 4px solid var(--unam-blue); background: var(--accent-soft); }
+.cost .box h5 { margin: 0 0 0.35em 0; font-size: 0.56em; }
+.cost .box.old h5 { color: var(--muted); }
+.cost .box.new h5 { color: var(--unam-blue); }
+.cost .box .row { display: flex; justify-content: space-between; font-size: 0.5em; padding: 0.15em 0; border-top: 1px dashed var(--line); }
+.cost .box .row span:last-child { font-weight: 700; }
+.cost .box.old .row span:last-child { color: var(--muted); }
+.cost .box.new .row span:last-child { color: var(--unam-blue); }
+.cost .arrow { font-size: 1.6em; color: var(--unam-gold); font-weight: 700; }
+.costnote { text-align: center; font-size: 0.52em; color: var(--ink); margin-top: 0.5em; padding: 0.4em; background: #f6f8fb; border-radius: 8px; }
+.costnote b { color: var(--unam-blue); }
+
+/* ── Timeline / step flow ─────────────────────────────── */
+.flow { display: flex; align-items: stretch; gap: 0; margin: 0.5em 0; }
+.flow .step { flex: 1; position: relative; padding: 0.6em 0.75em; background: var(--accent-soft); border: 1px solid #c9d8ef; }
+.flow .step:first-child { border-radius: 10px 0 0 10px; }
+.flow .step:last-child { border-radius: 0 10px 10px 0; }
+.flow .step + .step { border-left: none; }
+.flow .step .sn { font-size: 0.44em; color: var(--unam-gold); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.flow .step h5 { margin: 0.2em 0 0.25em 0; font-size: 0.58em; color: var(--unam-blue); line-height: 1.25; }
+.flow .step p { font-size: 0.5em; margin: 0; color: var(--muted); line-height: 1.4; }
+.flow .step.v2 { background: #fff; }
+
+/* ── Table ────────────────────────────────────────────── */
+table.t {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.52em;
+  margin-top: 0.5em;
+}
+table.t th {
+  text-align: left; padding: 0.45em 0.6em;
+  background: var(--unam-blue); color: #fff;
+  font-weight: 600; font-size: 0.94em;
+  letter-spacing: 0.03em;
+}
+table.t th:first-child { border-radius: 6px 0 0 0; }
+table.t th:last-child { border-radius: 0 6px 0 0; }
+table.t td { padding: 0.42em 0.6em; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.35; }
+table.t tr.hl td { background: var(--accent-soft); font-weight: 700; color: var(--unam-blue); }
+table.t tr.tot td { background: #f4f6f9; font-weight: 700; }
+table.t td.num { font-variant-numeric: tabular-nums; display: table-cell; }
+table.t td.num .up { color: var(--warn); font-weight: 700; }
+table.t td.num .down { color: var(--muted); text-decoration: line-through; }
+table.t td.num .same { color: var(--muted); }
+
+/* ── Figures ──────────────────────────────────────────── */
+.figwrap { text-align: center; margin: 0; }
+.figwrap img { max-height: 62vh; max-width: 100%; object-fit: contain; border-radius: 6px; }
+.figwrap img.tall { max-width: 78%; max-height: 68vh; }
+.figwrap figcaption { font-size: 0.46em; color: var(--muted); margin-top: 0.55em; line-height: 1.4; }
+.figwrap figcaption b { color: var(--ink); }
+
+/* ── Sources footer ───────────────────────────────────── */
+.srcline { font-size: 0.42em; color: var(--muted); margin-top: 0.7em; line-height: 1.4; }
+.srcline b { color: var(--muted); font-weight: 600; }
+
+/* ── Progress / slide number ──────────────────────────── */
+.reveal .progress { color: var(--unam-gold); height: 4px; }
+.reveal .controls { color: var(--unam-blue); }
+.reveal .slide-number { background: rgba(11,61,145,0.85); font-size: 0.35em; }
+
+/* ── Dense slides ─────────────────────────────────────── */
+.reveal .dense { font-size: 26px; }
+
+.reveal .footnote { font-size: 0.44em; color: var(--muted); margin-top: 0.6em; }
+
+/* ── Reveal layout ────────────────────────────────────── */
+.reveal .slides section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+}
+.reveal .slides section > * { flex: 0 0 auto; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ══════════════════════════ 1. PORTADA ══════════════════════════ -->
+<section class="cover" data-background-color="#ffffff">
+  <div class="brandbar">
+    <img src="img/UNAM.png" alt="UNAM">
+    <div class="sep"></div>
+    <img src="img/FI.png" alt="Facultad de Ingeniería">
+    <div class="brandtext">
+      <div class="uni">Universidad Nacional Autónoma de México</div>
+      <div class="fac">Facultad de Ingeniería · División de Ciencias Sociales y Humanidades</div>
+    </div>
+  </div>
+
+  <div class="eyebrow">Proyecto · Introducción a la Economía</div>
+  <h1>Economía Digital y<br>Comercio Electrónico</h1>
+  <div class="subtitle">Estructura de mercado, dinámica macroeconómica y desafíos regulatorios</div>
+
+  <div class="meta">
+    <div><span class="k">Equipo 3</span><span class="v">Arcos Barragán Yael Edrei<br>Hernández Rosas Jafet Daniel<br>Ortiz Giles Diego Antonio</span></div>
+    <div><span class="k">Profesor</span><span class="v">Lic. Carlos Aurelio Bernal Esponda</span></div>
+    <div><span class="k">Grupo</span><span class="v">16 · Semestre 2027-1</span></div>
+    <div><span class="k">Fecha</span><span class="v">4 de noviembre de 2026</span></div>
+  </div>
+
+  <aside class="notes"><b>Portada.</b> Presentarse brevemente como Equipo 3 y leer el título con el subtítulo: <i>Estructura de mercado, dinámica macroeconómica y desafíos regulatorios</i>.
+<b>Recomendación:</b> abrir con la pregunta motriz (diapositiva 2) en vez de con la agenda. Es lo que distingue a esta versión del documento original.</aside>
+  </section>
+
+<!-- ══════════════════════════ 2. PREGUNTA MOTRIZ ══════════════════════════ -->
+<section>
+  <h2 class="slide-title">La pregunta que ordena el análisis</h2>
+  <div class="card tinted" style="margin:0.6em 0 0.9em">
+    <p style="font-size:0.8em;text-align:center;line-height:1.4"><b>¿Qué le ocurre al Estado mexicano cuando la estructura de la producción se digitaliza?</b></p>
+  </div>
+  <div class="cols cols-3">
+    <div class="card">
+      <div class="badge">1</div>
+      <h4>Contabilidad nacional</h4>
+      <p>El comercio electrónico dejó de ser un epifenómeno y ya es un <b>sector con peso propio en el PIB</b>.</p>
+    </div>
+    <div class="card">
+      <div class="badge">2</div>
+      <h4>Sistema monetario</h4>
+      <p>La competencia en línea altera la <b>formación de precios</b> y, con ello, la transmisión de la política monetaria.</p>
+    </div>
+    <div class="card">
+      <div class="badge">3</div>
+      <h4>Estado de derecho</h4>
+      <p>Aduanas, fiscalidad y relaciones laborales tuvieron que ajustarse a una realidad que cambió <b>en cuestión de años</b>.</p>
+    </div>
+  </div>
+  <div class="cols cols-2" style="margin-top:1.1em;gap:1em">
+    <div>
+      <p style="font-size:0.62em;color:var(--muted);line-height:1.5">Lo que hace una década parecía una mejora en la logística de compra es hoy un <b>sector económico de primer orden con reglas propias</b>.</p>
+    </div>
+    <div>
+      <p style="font-size:0.62em;color:var(--muted);line-height:1.5">Recorremos: <b>qué es y cómo se mide</b> → <b>por qué cambia la conducta de compra</b> → <b>cómo se configura el poder de mercado</b> → <b>cómo respondió el Estado</b> → <b>qué queda en debate abierto</b>.</p>
+    </div>
+  </div>
+
+  <aside class="notes"><b>Diapositiva ancla — no se salta.</b> Enunciar la pregunta: <i>¿qué le ocurre al Estado mexicano cuando la estructura de la producción se digitaliza?</i>
+Los tres frentes son las tres dimensiones del curso: <b>contabilidad nacional</b> (Hacienda), <b>sistema monetario</b> (Banco de México) y <b>Estado de derecho</b> (aduanas y trabajo).
+Dejar 20 segundos de silencio en la pregunta antes de pasar. Es lo que ancla toda la exposición.</aside>
+  </section>
+
+<!-- ══════════════════════════ 3. SECCIÓN 1 ══════════════════════════ -->
+<section class="section-slide" data-background-color="#0b3d91">
+  <div class="secnum">Sección 1</div>
+  <h2 class="slide-title">¿Qué es el comercio electrónico y cómo se mide?</h2>
+  <div class="seclead">Sin claridad en la medición, los números que siguen no significan nada.</div>
+
+  <aside class="notes"><b>Divisor.</b> Anunciar: sin claridad en la medición, los números que siguen no significan nada.</aside>
+  </section>
+
+<!-- ══════════════════════════ 4. DEFINICIÓN ══════════════════════════ -->
+<section>
+  <h2 class="slide-title">Definición: el criterio no es el medio de pago</h2>
+  <div class="card tinted" style="margin:0.5em 0 0.9em">
+    <p style="font-size:0.66em;line-height:1.45"><b>INEGI:</b> «el proceso de compra, venta o intercambio de bienes, servicios e información a través de redes informáticas, <b>independientemente de si la liquidación financiera ocurre en línea o a través de medios presenciales</b>».</p>
+  </div>
+  <div class="cols cols-2">
+    <div class="card">
+      <h4>Rasgo 1 · El criterio es la red informativa</h4>
+      <p>Una compra hecha en una tienda física pero cerrada con una terminal conectada <b>es</b> comercio electrónico.</p>
+      <p>Y una transferencia por transferencia bancaria entre dos empresas <b>es</b> comercio electrónico, aunque no haya tienda.</p>
+    </div>
+    <div class="card">
+      <h4>Rasgo 2 · Es más amplio que «tienda en línea»</h4>
+      <p>Incluye servicios que <b>no implican envío físico alguno</b>: el transporte bajo demanda o el alojamiento.</p>
+      <p>Esto explica por qué los servicios digitales son hoy la mayor parte del valor agregado del sector.</p>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuente:</b> INEGI, definición del VABCOEL.</div>
+
+  <aside class="notes"><b>El punto que hay que dejar claro:</b> el INEGI no define por el medio de pago sino por la <b>existencia de una red informativa</b>.
+Los dos ejemplos que conviene decir en voz alta: una compra en tienda física cerrada con terminal conectada <b>es</b> comercio electrónico; una transferencia bancaria entre dos empresas <b>también</b>, aunque no haya tienda.
+Segundo rasgo: es más amplio que «tienda en línea» — incluye transporte bajo demanda y alojamiento. Esto prepara la diapositiva de la composición sectorial.</aside>
+  </section>
+
+<!-- ══════════════════════════ 5. LOS DOS INDICADORES ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Dos cifras que parecen contradictorias… y no lo son</h2>
+  <div class="lead" style="margin-bottom:0.5em">En la discusión pública circulan cifras que parecen discrepar. El problema es de <b>universos estadísticos</b>, no de medición.</div>
+  <table class="t" style="font-size:0.58em">
+    <tr><th style="width:22%">Indicador</th><th style="width:48%">Qué mide</th><th style="width:30%">Valor 2024</th></tr>
+    <tr>
+      <td><b>VABCOEL</b><br><span style="color:var(--muted)">INEGI</span></td>
+      <td>Valor agregado bruto de <b>toda</b> la actividad electrónica: minorista, mayorista y servicios, dentro del PIB</td>
+      <td class="num"><b>2,308,458</b><br><span style="color:var(--muted)">millones de pesos</span></td>
+    </tr>
+    <tr>
+      <td><b>Ventas en línea</b><br><span style="color:var(--muted)">AMVO</span></td>
+      <td>Valor de mercado de las ventas minoristas en línea <b>únicamente</b></td>
+      <td class="num"><b>789,700</b><br><span style="color:var(--muted)">millones de pesos</span></td>
+    </tr>
+  </table>
+  <div class="cols cols-2" style="margin-top:1em">
+    <div class="card goldline">
+      <h4>El problema de la medición</h4>
+      <p>El Sistema de Cuentas Nacionales clasifica las actividades en sectores. Cuando aparece una transacción en red, el reto es asignarla <b>sin duplicar</b> la actividad ya contabilizada por otras vías.</p>
+      <p>Un producto vendido en un marketplace <b>no desaparece</b> el comercio minorista: cambia de canal, y su valor agregado se reasigna dentro de la misma estructura sectorial.</p>
+    </div>
+    <div class="card">
+      <h4>El argumento de las cifras</h4>
+      <p style="font-size:0.58em">No es discrepancia sino universos distintos: el VABCOEL comprende el comercio minorista y mayorista, los servicios digitales y la intermediación de plataformas; AMVO mide únicamente el minorista en línea.</p>
+      <p style="font-size:0.52em;color:var(--muted);margin-top:0.5em"><b>Advertencia metodológica:</b> comparar las dos cifras como si midieran lo mismo es el error de lectura más común sobre el tema.</p>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> INEGI (VABCOEL 2024, SCN México), AMVO (Estudio de Ventas Online).</div>
+
+  <aside class="notes"><b>Diapositiva clave del proyecto.</b> Ésta es la corrección metodológica más importante del documento y hay que explicarla bien.
+VABCOEL 2,308,458 millones (todo) vs. AMVO 789,700 millones (sólo minorista en línea). <b>No son discrepancia: son universos distintos.</b>
+El problema de medición de fondo: cuando aparece una transacción en red hay que asignarla al sector <b>sin duplicar</b> la actividad ya contabilizada. Un producto vendido en un marketplace no desaparece el comercio minorista: cambia de canal.</aside>
+  </section>
+
+<!-- ══════════════════════════ 6. FIGURA VABCOEL ══════════════════════════ -->
+<section>
+  <h2 class="slide-title">De 3.3% a 6.9% del PIB en una década</h2>
+  <figure class="figwrap">
+    <img src="img/fig-vabcoel.png" alt="Evolución del VABCOEL en México entre 2013 y 2024">
+    <figcaption><b>El dato de 2020 no es tendencia:</b> el PIB cayó −8.4% y el comercio electrónico subió +23.3%, pero hacia 2022–2024 las tasas convergieron de vuelta al nivel pre-pandemia (14.6% → 8.5% → 7.1%). Fue <b>aceleración temporal por sustitución forzosa</b>, no cambio estructural permanente.</figcaption>
+  </figure>
+
+  <aside class="notes"><b>Dejar la figura hablar sola 10 segundos.</b> El dato que importa: en 2020 el PIB cayó −8.4% y el comercio electrónico subió +23.3%, <b>pero la tendencia se revirtió</b> (14.6% → 8.5% → 7.1%).
+Esta es la limitación causal que se retomará en la sección 6. Adelantarla aquí: fue aceleración temporal por sustitución forzosa, no cambio estructural permanente.</aside>
+  </section>
+
+<!-- ══════════════════════════ 7. COMPOSICIÓN Y PESO RELATIVO ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Sexto sector de la economía — y no es envío de paquetes</h2>
+  <div class="cols cols-55-45">
+    <div>
+      <div class="stats stats-3">
+        <div class="stat"><div class="v">51.3<span class="u">%</span></div><div class="k">Otros servicios</div></div>
+        <div class="stat gold"><div class="v">29.1<span class="u">%</span></div><div class="k">Comercio al por menor</div></div>
+        <div class="stat"><div class="v">19.6<span class="u">%</span></div><div class="k">Comercio al por mayor (B2B)</div></div>
+      </div>
+      <ul class="tight" style="margin-top:0.8em">
+        <li>2013: 564,928 millones de pesos = <b>3.3%</b> del PIB → 2024: 2,308,458 millones = <b>6.9%</b>.</li>
+        <li>A precios constantes de 2018: 1,796,594 millones, <b>+7.1%</b> real — casi seis veces el +1.2% de la economía nacional.</li>
+        <li>En 2020 el minorista de bienes tangibles tocó su máximo histórico de <b>35.5%</b> y los servicios cayeron a 39.2% por la parálisis del turismo.</li>
+        <li>AMVO: 789,700 millones en 2024 (+20%) → <b>941,000 millones en 2025</b>.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card">
+        <h4>Si el comercio electrónico fuera un sector más</h4>
+        <table class="t">
+          <tr><th>Sector (SCIAN)</th><th>% del PIB</th></tr>
+          <tr><td>Industrias manufactureras</td><td class="num">20.1%</td></tr>
+          <tr><td>Comercio al por menor total</td><td class="num">9.5%</td></tr>
+          <tr><td>Comercio al por mayor total</td><td class="num">9.2%</td></tr>
+          <tr class="hl"><td>Comercio electrónico (VABCOEL)</td><td class="num">6.9%</td></tr>
+          <tr><td>Transportes, correos y almacenamiento</td><td class="num">6.6%</td></tr>
+          <tr><td>Servicios financieros y de seguros</td><td class="num">3.9%</td></tr>
+        </table>
+      </div>
+      <div class="card goldline" style="margin-top:0.6em">
+        <p><b>Iguala a construcción, supera a transportes, casi triplica a servicios financieros.</b> Y la omnicanalidad lo sostiene: 85% de los consumidores combina canales físicos y digitales.</p>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> INEGI (VABCOEL 2013–2024), Mobile Time, AMVO, El Economista.</div>
+
+  <aside class="notes"><b>La idea contraintuitiva:</b> el comercio electrónico ya <b>no</b> es principalmente enviar paquetes. Los servicios digitales son 51.3% del valor agregado, el minorista 29.1%, el mayorista 19.6%.
+La tabla de la derecha: 6.9% iguala a construcción, supera transportes (6.6%), casi triplica servicios financieros (3.9%).</aside>
+  </section>
+
+<!-- ══════════════════════════ 8. SECCIÓN 2 ══════════════════════════ -->
+<section class="section-slide" data-background-color="#0b3d91">
+  <div class="secnum">Sección 2</div>
+  <h2 class="slide-title">Determinantes microeconómicos</h2>
+  <div class="seclead">Por qué cambia la conducta de compra: de los costos de distribución a la lógica de la bancarización</div>
+
+  <aside class="notes"><b>Divisor.</b> Transición: ya sabemos cuánto pesa; ahora, <b>por qué cambia la conducta de compra</b>.</aside>
+  </section>
+
+<!-- ══════════════════════════ 9. ESTRUCTURA DE COSTOS ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">La estructura de costos: la clave que no se ve</h2>
+  <div class="lead" style="margin-bottom:0.5em">Para entender por qué la economía digital se organiza en torno a plataformas hay que empezar por los costos, <b>no</b> por la plataforma en sí.</div>
+
+  <div class="cost">
+    <div class="box old">
+      <h5>Distribución física</h5>
+      <div class="row"><span>Estructura de costos</span><span>Variables</span></div>
+      <div class="row"><span>Costo marginal de servir a un usuario más</span><span>Alto y creciente</span></div>
+      <div class="row"><span>Causa</span><span>Almacenamiento, transporte, personal</span></div>
+      <div class="row"><span>Consecuencia</span><span>Limita el número de intermediarios</span></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="box new">
+      <h5>Distribución digital</h5>
+      <div class="row"><span>Estructura de costos</span><span>Fijos</span></div>
+      <div class="row"><span>Costo marginal de servir a un usuario más</span><span>Casi nulo</span></div>
+      <div class="row"><span>Causa</span><span>Software, nube, marketing</span></div>
+      <div class="row"><span>Consecuencia</span><span>Rendimientos crecientes</span></div>
+    </div>
+  </div>
+  <div class="costnote">La digitalización eliminó el costo marginal de <b>reproducción</b> y de <b>distribución</b>: un producto digital se reproduce un número ilimitado de veces sin costo incremental.</div>
+
+  <div class="cols cols-2" style="margin-top:1em">
+    <div class="card tinted">
+      <h4>El efecto decisivo</h4>
+      <p>Cada usuario adicional no sólo agrega demanda: <b>distribuye el costo fijo ya hundido</b> de la plataforma sobre una base mayor.</p>
+      <p>Esa combinación — <b>altos costos fijos, costo marginal casi nulo</b> — es la base microeconómica de los efectos de red que se analizan en la sección 3.</p>
+    </div>
+    <div class="card">
+      <h4>La paradoja que abre el documento</h4>
+      <p>La misma economía que produce los precios bajos que benefician al consumidor produce también las barreras que hacen esos precios <b>frágiles</b>.</p>
+      <p style="font-size:0.52em;color:var(--muted);margin-top:0.4em">Son dos caras del mismo objeto, y todo el debate regulatorio posterior se juega ahí.</p>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> Samuelson &amp; Nordhaus, <i>Economía</i>; Rochet &amp; Tirole.</div>
+
+  <aside class="notes"><b>Diapositiva de fondo conceptual.</b> Insistir en el punto: para entender por qué la economía digital se organiza en torno a plataformas hay que empezar por los <b>costos</b>, no por la plataforma.
+El diagrama es el ancla: distribución física (costos variables, costo marginal alto y creciente) → distribución digital (costos fijos, costo marginal casi nulo).
+<b>Rendimientos crecientes</b>: cada usuario adicional no sólo agrega demanda, distribuye el costo fijo ya hundido sobre una base mayor.
+<b>La paradoja:</b> la misma economía que produce los precios bajos produce las barreras que los hacen frágiles. Es la tesis que sostiene toda la sección 3.</aside>
+  </section>
+
+<!-- ══════════════════════════ 10. DETERMINANTES DE LA DEMANDA ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Cuatro determinantes de la demanda… y un quinto propio del mercado digital</h2>
+  <div class="cols cols-2" style="gap:0.6em">
+    <div class="card">
+      <div class="badge">1</div>
+      <h4>Transparencia de precios</h4>
+      <p>Comparar más ofertantes simultáneamente reduce el <b>costo de búsqueda</b> y la dispersión de precios. Efecto documentado empíricamente por Cavallo.</p>
+    </div>
+    <div class="card">
+      <div class="badge">2</div>
+      <h4>Conveniencia y logística</h4>
+      <p>Entrega a domicilio, disponibilidad 24/7 y rastreo reducen el <b>costo no monetario</b> de la compra. Es el determinante que erosionó al minorista físico sin eliminarlo.</p>
+    </div>
+    <div class="card">
+      <div class="badge">3</div>
+      <h4>Amplitud del surtido</h4>
+      <p>Una plataforma agrega la oferta de miles de vendedores: desde el lado de la demanda equivale a un <b>catálogo sin límite de existencias</b>.</p>
+    </div>
+    <div class="card">
+      <div class="badge">4</div>
+      <h4>Confianza e infraestructura de pago</h4>
+      <p><b>Decisivo en México:</b> sin medio de pago electrónico verificable no hay transacción. Es la misma lógica institucional de cualquier intercambio: sin confianza en el cumplimiento, no hay comercio.</p>
+    </div>
+  </div>
+  <div class="card tinted" style="margin-top:0.7em;border-left:4px solid var(--unam-gold)">
+    <h4>El quinto: efecto de red del lado de la demanda</h4>
+    <p><b>Cuantos más compradores hay, más atractivo tiene para el vendedor incorporarse; cuantos más vendedores hay, más surtido encuentra el comprador.</b></p>
+    <p>Este mecanismo, ausente en el comercio minorista tradicional, genera la tendencia a la concentración que se analiza en la sección 3.</p>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> Mankiw, <i>Principios de Economía</i>; Cavallo (HBS/NBER).</div>
+
+  <aside class="notes"><b>Cuatro determinantes + un quinto.</b> No leer los cuatro uno por uno: leer los títulos y desarrollarlos en una frase cada uno.
+<i>Transparencia</i> (Cavallo), <i>conveniencia</i> (erosiona al minorista físico sin eliminarlo), <i>amplitud</i> (catálogo sin límite), <i>confianza e infraestructura de pago</i> — este último es el decisivo en México.
+<b>El quinto es el que importa:</b> el efecto de red del lado de la demanda. Es el mecanismo que genera la concentración de la sección 3.</aside>
+  </section>
+
+<!-- ══════════════════════════ 11. BARRERAS Y BANCARIZACIÓN ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">La contradicción mexicana: volumen enorme, adopción baja</h2>
+  <div class="cols cols-2">
+    <div>
+      <div class="card alert">
+        <h4>La brecha de adopción</h4>
+        <p style="font-size:0.58em">67.2 millones de mexicanos (84% de los usuarios de internet) adquirieron algún bien o servicio digitalmente, pero solo el <b>33.2%</b> de la población adulta compró en línea bajo estándares comparables durante 2024.</p>
+      </div>
+      <table class="t" style="margin-top:0.6em">
+        <tr><th>País / promedio</th><th>Compras en línea</th></tr>
+        <tr><td><b>Irlanda</b> (líder OCDE)</td><td class="num">94.7%</td></tr>
+        <tr><td>Promedio OCDE</td><td class="num">71.3%</td></tr>
+        <tr class="hl"><td>México</td><td class="num">33.2%</td></tr>
+        <tr><td>Colombia</td><td class="num">15.3%</td></tr>
+      </table>
+      <p class="tiny" style="color:var(--muted);margin-top:0.4em">México queda en el penúltimo lugar entre 31 naciones de la OCDE.</p>
+    </div>
+    <div>
+      <div class="card" style="padding:0.6em 0.8em">
+        <h4>Brecha urbano-rural</h4>
+        <div style="margin:0.5em 0 0.2em">
+          <div style="display:flex;justify-content:space-between;font-size:0.5em;margin-bottom:0.2em"><span>Zonas urbanas</span><b style="color:var(--unam-blue)">39.2%</b></div>
+          <div style="height:1.1em;background:#eef1f5;border-radius:5px;overflow:hidden"><div style="width:39.2%;height:100%;background:var(--unam-blue)"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.5em;margin:0.6em 0 0.2em"><span>Áreas rurales</span><b style="color:var(--warn)">19.1%</b></div>
+          <div style="height:1.1em;background:#eef1f5;border-radius:5px;overflow:hidden"><div style="width:19.1%;height:100%;background:var(--warn)"></div></div>
+        </div>
+      </div>
+      <div class="card tinted" style="margin-top:0.6em">
+        <h4>La lógica de la bancarización</h4>
+        <p>El RFC como identificador y la cuenta bancaria como infraestructura de pago son <b>condición de previo</b> para la adopción digital.</p>
+        <p>Por eso el comercio electrónico sigue siendo una <b>transacción esporádica</b> para millones de usuarios: es la misma falla que ha caracterizado el desarrollo financiero mexicano.</p>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> OCDE (comparables 2024), Xataka, El Economista, Méeplab.</div>
+
+  <aside class="notes"><b>La contradicción estructural.</b> 67.2 millones compraron en línea (84% de los usuarios de internet) pero solo 33.2% de la población adulta compra bajo estándares OCDE: penúltimo lugar de 31 países, frente al 71.3% del promedio.
+<b>La causa no es cultural, es institucional:</b> RFC como identificador y cuenta bancaria como infraestructura de pago son condición de previo. Es la misma falla que ha caracterizado el desarrollo financiero mexicano.</aside>
+  </section>
+
+<!-- ══════════════════════════ 12. B2B ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">El segmento invisible: el comercio entre empresas</h2>
+  <div class="cols cols-55-45">
+    <div>
+      <div class="lead" style="margin-bottom:0.5em">Hasta aquí hablamos del mercado minorista, que es el más visible. Pero el VABCOEL incluye el comercio al por mayor: las <b>transacciones entre empresas</b> representan el 19.6% del valor agregado del sector en 2024.</div>
+      <div class="card tinted" style="margin-bottom:0.6em">
+        <h4>La diferencia no es de escala, es de naturaleza</h4>
+        <p>En una transacción empresarial lo central no es el precio sino el <b>tiempo de búsqueda</b>.</p>
+        <p>Un comprador industrial no busca precios en un catálogo: busca un proveedor capaz de cumplir la <b>especificación técnica</b> y con historial de cumplimiento —un proceso que por medios físicos consume <b>semanas de trabajo administrativo</b>—. Un mercado como Amazon Business lo comprime a <b>minutos</b>.</p>
+      </div>
+      <div class="card">
+        <h4>El efecto más importante</h4>
+        <p>La digitalización de la cadena de suministro eleva la <b>productividad del tramo industrial</b> del país.</p>
+        <p>México es una economía manufacturera integrada con Estados Unidos: <b>si la cadena de valor estadounidense se vuelve más eficiente en sus compras, la integración manufacturera mexicana se vuelve también más eficiente.</b></p>
+        <p style="font-size:0.5em;color:var(--muted);margin-top:0.4em">Es un canal de transmisión que rara vez se menciona al hablar de «comercio electrónico».</p>
+      </div>
+    </div>
+    <div>
+      <div class="card good">
+        <h4>Consecuencia 1 · Costos de transacción</h4>
+        <p>Reducción drástica que permite a <b>empresas pequeñas acceder a insumos</b> que antes sólo alcanzaban las grandes.</p>
+      </div>
+      <div class="card good" style="margin-top:0.55em">
+        <h4>Consecuencia 2 · Mejor asignación</h4>
+        <p>El cruce de grandes volúmenes de oferta y demanda reduce los costos de emparejamiento <b>de facto</b>.</p>
+      </div>
+      <div class="card good" style="margin-top:0.55em">
+        <h4>Consecuencia 3 · Productividad industrial</h4>
+        <p>La eficiencia de compras de la contraparte se traslada al tramo industrial mexicano. Es el efecto más grande y el menos discutido.</p>
+      </div>
+      <div class="card goldline" style="margin-top:0.55em">
+        <p style="font-size:0.54em"><b>En perspectiva:</b> el B2B es 19.6% del valor agregado del sector y, sin embargo, es invisible en el debate público sobre comercio electrónico, que se concentra en el minorista.</p>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> INEGI (VABCOEL 2024); CEPAL (tráfico transfronterizo); OMC (integración regional).</div>
+
+  <aside class="notes"><b>Sección que casi nadie expone — buen momento parapia.</b> El B2B es 19.6% del valor agregado y es invisible en el debate público.
+<b>La diferencia es de naturaleza, no de escala:</b> en una transacción empresarial lo central no es el precio sino el <b>tiempo de búsqueda</b>. Semanas de trabajo administrativo → minutos.
+<b>El efecto más importante (tercero):</b> la productividad del tramo industrial. México es una economía manufacturera integrada con EE. UU.: si la cadena de valor estadounidense compra mejor, la integración manufacturera mexicana también se vuelve más eficiente. Es un canal de transmisión que rara vez se menciona.
+<b>Si sobra tiempo, recortar la consecuencia 1 y quedarse con la 3.</b></aside>
+  </section>
+
+<!-- ══════════════════════════ 13. SECCIÓN 3 ══════════════════════════ -->
+<section class="section-slide" data-background-color="#0b3d91">
+  <div class="secnum">Sección 3</div>
+  <h2 class="slide-title">Mercados de dos lados y Teoría de la Agregación</h2>
+  <div class="seclead">Por qué la concentración es endógena y no el resultado de conductas deliberadas</div>
+
+  <aside class="notes"><b>Divisor.</b> Pregunta guía: ¿por qué la concentración es <b>endógena</b> y no el resultado de conductas deliberadas?</aside>
+  </section>
+
+<!-- ══════════════════════════ 14. MERCADOS DE DOS LADOS ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Mercados de dos lados: la plataforma como intermediario necesario</h2>
+  <div class="lead" style="margin-bottom:0.4em">Rochet y Tirole: la mayoría de los mercados con externalidades de red opera como mercados de dos lados, donde la plataforma coordina dos grupos que no pueden encontrarse por su cuenta.</div>
+
+  <div class="market">
+    <div class="side loss">
+      <h5>Compradores (b)</h5>
+      <div class="cnt">n<sub>b</sub> usuarios · heterogéneos en v<sub>b</sub></div>
+      <div class="prices">
+        <div class="row"><span>Tarifa p<sub>b</sub></span><span>$ 0</span></div>
+        <div class="row"><span>Excedente u<sub>b</sub> = v<sub>b</sub> − p<sub>b</sub> + n<sub>s</sub>z<sub>b</sub></span><span>loss leader</span></div>
+      </div>
+    </div>
+    <div class="hub">
+      <div class="pl">PLATAFORMA<br>Costo de intermediación: c</div>
+      <div class="net">Externalidades de red cruzadas:<br>más compradores ⟶ más vendedores ⟶ más compradores</div>
+    </div>
+    <div class="side profit">
+      <h5>Vendedores (s)</h5>
+      <div class="cnt">n<sub>s</sub> usuarios · heterogéneos en v<sub>s</sub></div>
+      <div class="prices">
+        <div class="row"><span>Tarifa p<sub>s</sub></span><span>Alta</span></div>
+        <div class="row"><span>Rol</span><span>profit center</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="arrownote">La transacción sólo ocurre si ambos lados coinciden: la demanda efectiva es el producto de las cuasi-demandas D<sub>b</sub>(p<sub>b</sub>,p<sub>s</sub>) × D<sub>s</sub>(p<sub>b</sub>,p<sub>s</sub>). La plataforma elige el precio total <b>p</b> y <b>cómo se reparte</b> entre los dos lados.</div>
+
+  <div class="cols cols-2" style="margin-top:0.7em;gap:0.9em">
+    <div class="card">
+      <h4>Subsidio cruzado</h4>
+      <p>Un lado a precio cero o negativo, el otro absorbe el costo total del ecosistema. Ejemplos históricos: consolas (Atari, Nintendo, Sega, Sony), redes de pago (Visa, AmEx), navegadores (Netscape).</p>
+    </div>
+    <div class="card">
+      <h4>Multiconexión (multihoming)</h4>
+      <p>Si los vendedores se afilian a varias plataformas (Amazon y Mercado Libre; Uber y Lyft), se intensifica la competencia de precios en el lado de los compradores: las plataformas «dirigen» (<i>steer</i>) usuarios hacia la exclusividad.</p>
+      <p style="font-size:0.52em;color:var(--muted);margin-top:0.4em"><b>Implicación directa para México:</b> la coexistencia de varias plataformas es lo que impide que cualquiera capture el 100% de los vendedores.</p>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> Rochet &amp; Tirole, <i>Review of Economic Studies</i> (2003, 2006); SIEP.</div>
+
+  <aside class="notes"><b>No entrar a las fórmulas.</b> Explicar el mecanismo: la plataforma es el intermediario necesario entre dos grupos que no se encuentran solos.
+<b>Subsidio cruzado</b> = consecuencia práctica: un lado paga cero, el otro paga todo. Ejemplos: consolas, Visa, Netscape.
+<b>Multihoming</b> (vendedor en Amazon y Mercado Libre a la vez) obliga a competir y a «dirigir» usuarios. <b>Implicación directa para México:</b> la coexistencia de plataformas es lo que impide que cualquiera capture el 100% de los vendedores.</aside>
+  </section>
+
+<!-- ══════════════════════════ 15. TEORÍA DE LA AGREGACIÓN ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">La Teoría de la Agregación y la Línea de Bill Gates</h2>
+  <div class="cols cols-55-45">
+    <div>
+      <div class="lead" style="margin-bottom:0.5em"><b>Ben Thompson (2015):</b> antes de internet la distribución física —rotativas, flotas de camiones, ubicaciones inmobiliarias— era un recurso escaso y costoso, y las empresas dominantes integraban hacia atrás la distribución con el control de la oferta.</div>
+      <ul class="tight">
+        <li>La digitalización eliminó el costo marginal de reproducción y distribución, y redujo drásticamente los costos de transacción.</li>
+        <li>En un entorno de <b>oferta abundante y distribución gratuita</b>, el recurso verdaderamente escaso pasó a ser la <b>atención y la demanda del usuario</b>.</li>
+      </ul>
+      <div class="card tinted" style="margin-top:0.7em">
+        <h4>La línea de Bill Gates</h4>
+        <p style="font-size:0.55em">Una plataforma genuina es aquella donde <b>el valor económico del ecosistema que habita sobre ella supera al valor de la empresa que la construyó</b>.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="border-left:4px solid var(--ok)">
+        <h4 style="color:var(--ok)">Plataforma — empower al tercero</h4>
+        <p><b>Shopify, Windows.</b> El comerciante usa las herramientas para vender pero conserva <b>su marca, sus datos y la relación directa con el comprador</b>. El riesgo se distribuye en todo el ecosistema.</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--warn);margin-top:0.6em">
+        <h4 style="color:var(--warn)">Agregador — controlar la demanda</h4>
+        <p><b>Amazon, Google, Booking.com.</b> Se interpone entre proveedor y consumidor, se apropia de la relación directa y <b>comoditiza a los proveedores</b>: los convierte en insumos intercambiables que dependen del agregador para alcanzar una demanda que no pueden lograr por sí mismos.</p>
+      </div>
+      <div class="footnote">Tres condiciones simultáneas: relación directa con el usuario · costo marginal ≈ 0 al atender a cada usuario adicional · atraer proveedores en términos cada vez más favorables conforme escala la demanda.</div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> B. Thompson, <i>Stratechery</i>; Haba &amp; Buteau.</div>
+
+  <aside class="notes"><b>La inversión de la cadena de valor.</b> Antes el recurso escaso era la distribución física; ahora es la atención.
+<b>Línea de Bill Gates:</b> separa plataforma (Shopify, Windows — el tercero conserva su marca, sus datos y su cliente) de agregador (Amazon, Google — se apropia de la relación y comoditiza al proveedor).</aside>
+  </section>
+
+<!-- ══════════════════════════ 16. FIGURA AGREGACIÓN + NIVELES ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Tres niveles de poder de agregación</h2>
+  <figure class="figwrap" style="margin-bottom:0.4em">
+    <img src="img/fig-agregacion.png" alt="Cadena de valor tradicional frente a plataforma y agregador digital" style="max-height:46vh">
+  </figure>
+  <div class="cols cols-3" style="margin-top:0.3em">
+    <div class="card">
+      <h4>Nivel 1 · Costo de adquisición de la oferta</h4>
+      <p>Costo fijo por adquirir o producir la oferta; costo marginal cero por servir a nuevos usuarios.</p>
+      <p style="font-size:0.5em"><b>Netflix vs. Spotify:</b> Netflix paga tarifas fijas por licenciar contenido y cada suscriptor amortiza ese costo. Spotify enfrenta costos marginales positivos —las regalías crecen con las reproducciones— porque la oferta está concentrada en <b>tres disqueras con poder de oligopolio</b>.</p>
+    </div>
+    <div class="card">
+      <h4>Nivel 2 · Costos de transacción de la oferta</h4>
+      <p>No compran la oferta, pero incurren en costos marginales operativos y regulatorios al incorporar cada nuevo proveedor.</p>
+      <p style="font-size:0.5em"><b>Uber y Airbnb:</b> la seguridad exige verificaciones de antecedentes y cumplimiento normativo local por cada conductor o anfitrión. El multihoming limita además el bloqueo absoluto.</p>
+    </div>
+    <div class="card">
+      <h4>Nivel 3 · Costos de oferta nulos</h4>
+      <p>Costo marginal cero tanto para incorporar usuarios como para integrar un número arbitrario de proveedores.</p>
+      <p style="font-size:0.5em"><b>TikTok, X, Snapchat, tiendas de apps:</b> los usuarios y desarrolladores suben contenido sin fricción. Con publicidad automatizada (<i>self-serve ads</i>) a costo marginal cero → <b>super-agregadores</b>.</p>
+    </div>
+  </div>
+  <div class="srcline"><b>Límite físico:</b> en abarrotes perecederos, donde la calidad se degrada en el transporte, el modelo de centros de distribución pierde ventaja frente a la tienda física tradicional (<i>Value Chain Constraint</i>).</div>
+
+  <aside class="notes"><b>Recorrer la figura de izquierda a derecha</b> (cadena tradicional → plataforma → agregador), luego los tres niveles: costo de adquisición (Netflix vs. Spotify), costos de transacción (Uber, Airbnb), costo de oferta nulo (TikTok, X).
+Mencionar el límite físico: en abarrotes perecederos el centro de distribución pierde ventaja frente a la tienda física.</aside>
+  </section>
+
+<!-- ══════════════════════════ 17. FLYWHEEL MERCADO LIBRE ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">El volante de inercia: cómo se construye el poder de mercado</h2>
+  <div class="lead" style="margin-bottom:0.5em">El caso de Mercado Libre muestra de manera concreta cómo se construye ese poder: el comercio minorista actúa como <b>base de datos</b> que alimenta tres negocios adyacentes de altísimo margen.</div>
+  <div class="cols cols-3" style="gap:0.7em">
+    <div class="card">
+      <h4>1 · Escala comercial</h4>
+      <div class="stat" style="border-top:none;padding:0.3em 0"><div class="v">US$ 28.9<span class="u"> B</span></div></div>
+      <p>Ingresos netos 2025, <b>+39%</b> interanual, con <b>78 millones</b> de usuarios activos mensuales. En México, el volumen de artículos vendidos creció <b>45%</b>.</p>
+    </div>
+    <div class="card">
+      <h4>2 · FinTech (Mercado Pago)</h4>
+      <div class="stat" style="border-top:none;padding:0.3em 0"><div class="v">US$ 278<span class="u"> B</span></div></div>
+      <p>Volumen Total de Pagos procesados en 2025. La plataforma internalizó la infraestructura de pagos para <b>superar la falla de baja bancarización</b> en América Latina.</p>
+    </div>
+    <div class="card">
+      <h4>3 · Crédito con IA</h4>
+      <div class="stat" style="border-top:none;padding:0.3em 0"><div class="v">US$ 12.5<span class="u"> B</span></div></div>
+      <p>Cartera total <b>+90%</b> interanual, con modelos de riesgo basados en inteligencia artificial que eliminan la asimetría de información crediticia.</p>
+    </div>
+  </div>
+  <div class="flow" style="margin-top:1em">
+    <div class="step"><div class="sn">Volante</div><h5>Más transacciones</h5><p>Cada venta alimenta el modelo de datos de la plataforma.</p></div>
+    <div class="step"><div class="sn">Efecto</div><h5>Más datos de pago</h5><p>El costo marginal de los servicios financieros baja.</p></div>
+    <div class="step"><div class="sn">Efecto</div><h5>Crédito más barato</h5><p>El vendedor financia su operación a menor tasa.</p></div>
+    <div class="step"><div class="sn">Efecto</div><h5>Más vendedores</h5><p>Atraídos por la financieración y el surtido.</p></div>
+    <div class="step v2"><div class="sn">Cierre</div><h5>Minorista más completo</h5><p>El ciclo se cierra y se acelera solo.</p></div>
+  </div>
+  <div class="card goldline" style="margin-top:0.8em">
+    <p style="font-size:0.58em"><b>Por qué importa teóricamente:</b> el volante se acelera solo, y por eso la <b>ventaja dinámica puede pesar más que la estática en costos</b>. Es un mecanismo de concentración que no requiere conducta deliberada.</p>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> Mexico Business News; 10-K de Mercado Libre (2025); Trefis. Cierre fiscal 2025.</div>
+
+  <aside class="notes"><b>Diapositiva nueva del PDF Equipo 3.</b> El caso de Mercado Libre muestra <b>cómo</b> se construye el poder: el minorista es la base de datos que alimenta tres negocios de altísimo margen.
+Las tres cifras: US$28.9 B (+39%, 78 M usuarios), US$278 B de TPV, US$12.5 B de crédito (+90%).
+<b>Lo importante es el volante</b> (el flujo de 5 pasos): más transacciones → más datos de pago → crédito más barato → más vendedores → minorista más completo. <b>El ciclo se acelera solo</b>, y por eso la ventaja dinámica puede pesar más que la estática en costos.
+<b>Consecuencia teórica:</b> es un mecanismo de concentración que <b>no</b> requiere conducta deliberada. Es el puente hacia la sección 3.</aside>
+  </section>
+
+<!-- ══════════════════════════ 18. FIGURA COFECE ══════════════════════════ -->
+<section>
+  <h2 class="slide-title">El caso COFECE: 85% del mercado de vendedores</h2>
+  <figure class="figwrap">
+    <img src="img/fig-cofece-meli.png" alt="Concentración del 85% del mercado de vendedores en marketplaces en México" class="tall" style="max-height:68vh;max-width:78%">
+    <figcaption><b>Expediente IEBC-001-2022.</b> Dictamen preliminar: febrero 2024. Resolución final: septiembre 2025. Amazon y Mercado Libre concentran cerca del <b>85%</b> del mercado de vendedores en marketplaces digitales en México.</figcaption>
+  </figure>
+
+  <aside class="notes"><b>Dato ancla:</b> Amazon y Mercado Libre concentran ~85% del mercado de vendedores en marketplaces en México. Expediente IEBC-001-2022: dictamen preliminar febrero 2024, resolución final septiembre 2025.</aside>
+  </section>
+
+<!-- ══════════════════════════ 19. CHICAGO VS NEO-BRANDEIS + BARRERAS ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Dos paradigmas de competencia</h2>
+  <div class="cols cols-2" style="margin-top:0.4em;gap:0.8em">
+    <div class="card" style="border-left:4px solid var(--muted)">
+      <h4 style="color:var(--muted)">Escuela de Chicago · Bienestar del consumidor</h4>
+      <p style="font-size:0.54em">Desde los años 80, la competencia se equipara con el <b>bienestar del consumidor</b>: efectos de corto plazo sobre precios y volumen. Las economías de escala, el capital requerido o la integración vertical se interpretan como <b>eficiencias pro-competitivas</b>.</p>
+    </div>
+    <div class="card" style="border-left:4px solid var(--unam-blue);background:var(--accent-soft)">
+      <h4>Neo-Brandeis · Lina Khan</h4>
+      <p style="font-size:0.54em"><i>Amazon's Antitrust Paradox</i> (<i>Yale Law Journal</i>): mirar sólo si los precios están bajos hoy <b>ignora la estructura del mercado</b> y el proceso competitivo de largo plazo. Amazon reportaba pérdidas y márgenes mínimos a propósito para expandir escala y eliminar competidores.</p>
+    </div>
+  </div>
+  <div class="cols cols-2" style="margin-top:0.7em;gap:0.6em">
+    <div class="card alert">
+      <h4>Mecanismo 1 · Integración vertical</h4>
+      <p style="font-size:0.52em">Al operar como marketplace, logística, pagos, crédito y publicidad, el operador controla las <b>instalaciones esenciales</b> de las que dependen sus propios rivales.</p>
+    </div>
+    <div class="card alert">
+      <h4>Mecanismo 2 · Conflicto por rol dual</h4>
+      <p style="font-size:0.52em">Como administrador del mercado y vendedor minorista, recopila datos de sus vendedores, lanza <b>marcas privadas</b> en los nichos de mayor margen y usa sus algoritmos para favorecerlas.</p>
+    </div>
+  </div>
+  <div class="card goldline" style="margin-top:0.7em">
+    <p style="font-size:0.56em"><b>Las cuatro barreras de la COFECE:</b> efectos de red artificiales por membresías empaquetadas con streaming · opacidad algorítmica en la asignación del <i>Buy Box</i> · <i>tying</i> logístico (la visibilidad en el Buy Box queda condicionada al uso de la paquetería propia) · barreras financieras y tecnológicas de entrada.</p>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> Khan, <i>Yale Law Journal</i> (2017); COFECE (IEBC-001-2022); Lexxion (Amazon Probe).</div>
+
+  <aside class="notes"><b>Contrastar las dos columnas.</b> Chicago: eficiencia = precios bajos hoy; los precios supracompetitivos atraen entrada. Khan: se ignora la estructura del mercado y el proceso competitivo.
+<b>Dos mecanismos de exclusión:</b> integración vertical (el operador controla las instalaciones esenciales de las que dependen sus rivales) y conflicto por rol dual (marca privada + favorecerlas algorítmicamente).
+<b>Las cuatro barreras de la COFECE</b> van en la franja inferior: membresías empaquetadas con streaming, opacidad del Buy Box, tying logístico, barreras de entrada.</aside>
+  </section>
+
+<!-- ══════════════════════════ 20. PARADOJA DE LA RESOLUCIÓN ══════════════════════════ -->
+<section>
+  <h2 class="slide-title">La paradoja de la resolución</h2>
+  <div class="cols cols-2" style="margin-top:0.5em">
+    <div>
+      <div class="card alert">
+        <h4>Lo que la COFECE confirmó</h4>
+        <p>El Pleno confirmó <b>formalmente la existencia de las cuatro barreras</b> a la competencia.</p>
+        <p>No impone sanciones ni ordena medidas correctivas vinculantes.</p>
+      </div>
+      <div class="card" style="margin-top:0.6em">
+        <h4>El argumento del Pleno</h4>
+        <p>No hubo consenso suficiente ante la falta de certeza sobre si eliminar esas prácticas <b>destruiría los enormes beneficios</b> de eficiencia y conveniencia que los programas de membresía y la logística integrada generan para los consumidores finales y las MiPyMEs.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card tinted">
+        <h4>La paradoja regulatoria de la economía digital</h4>
+        <p>El mismo acto que <b>identifica</b> las barreras es el que <b>no puede acordar cómo tratarlas</b>.</p>
+        <p>El Estado confirma el diagnóstico y se abstiene del remedio.</p>
+      </div>
+      <div class="card good" style="margin-top:0.6em">
+        <h4>La consecuencia de fondo</h4>
+        <p>El caso COFECE prefigura la respuesta mexicana en los tres frentes: <b>regular, formalizar y transparentar en lugar de restringir</b>.</p>
+        <p style="font-size:0.52em;color:var(--muted);margin-top:0.4em">Es una línea coherente —y es la que permite conservar los beneficios de eficiencia que la propia COFECE considerados eficientes. Pero tiene un límite, que veremos.</p>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> The Logistics World; Expansión (resolución de septiembre de 2025).</div>
+
+  <aside class="notes"><b>Diapositiva clave del proyecto — es el corazón del argumento.</b> La COFECE <b>confirmó</b> las barreras y <b>no impuso</b> sanciones.
+<b>Por qué:</b> no hubo consenso suficiente ante la falta de certeza sobre si eliminar esas prácticas destruiría los beneficios de eficiencia y conveniencia para consumidores y MiPyMEs.
+<b>El puente:</b> este caso prefigura la respuesta mexicana en los tres frentes — <b>regular, formalizar y transparentar en lugar de restringir</b>. Volveremos a esto en la sección 5.</aside>
+  </section>
+
+<!-- ══════════════════════════ 21. SECCIÓN 4 ══════════════════════════ -->
+<section class="section-slide" data-background-color="#0b3d91">
+  <div class="secnum">Sección 4</div>
+  <h2 class="slide-title">Fijación algorítmica de precios y política monetaria</h2>
+  <div class="seclead">El «Efecto Amazon» y su transmisión al caso mexicano: lo que la literatura estadounidense no pregunta</div>
+
+  <aside class="notes"><b>Divisor.</b> Anunciar el giro: la máquina empieza a fijar los precios, y el Efecto Amazon tiene una transmisión específica al caso mexicano.</aside>
+  </section>
+
+<!-- ══════════════════════════ 22. PRECIOS ALGORÍTMICOS + COLUSIÓN ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Precios algorítmicos y colusión tácita</h2>
+  <div class="cols cols-2">
+    <div>
+      <div class="card">
+        <h4>Discriminación de precios</h4>
+        <p style="font-size:0.54em">Si el algoritmo detecta mediante <i>cookies</i> que el historial de búsqueda incluye el dominio de un competidor, infiere mayor elasticidad-precio y ofrece descuento. Si identifica a un cliente cautivo que busca sólo en su portal, extrae mayor excedente.</p>
+        <p style="font-size:0.52em;color:var(--muted);margin-top:0.4em"><b>Caso Amazon:</b> un usuario observó caer el precio de un DVD de <b>$26.24 a $22.74</b> (−13.3%) tras borrar sus cookies. La empresa lo atribuyó a pruebas aleatorias y reembolsó a los afectados.</p>
+        <p style="font-size:0.52em;color:var(--muted);margin-top:0.35em">Los investigadores lo llaman <b>«la trampa de lo barato en línea»</b>: los usuarios no son suficientemente escépticos ante esquemas que segmentan precios por perfiles demográficos y conductuales.</p>
+      </div>
+      <div class="card" style="margin-top:0.55em">
+        <h4>Precios «goteo» (drip pricing)</h4>
+        <p style="font-size:0.54em">La plataforma atrae con un precio base bajo y revela cargos obligatorios adicionales al final del proceso de pago.</p>
+        <p style="font-size:0.52em;color:var(--muted);margin-top:0.35em"><b>Respuesta (oct. 2026):</b> iniciativa para adicionar la fracción VIII al art. 76 Bis 1 de la LFPC, que prohíbe incorporar o revelar cargos obligatorios en etapas posteriores que alteren el precio inicialmente informado.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card tinted" style="border-left:4px solid var(--unam-blue)">
+        <h4>Colusión algorítmica tácita</h4>
+        <p style="font-size:0.54em"><b>Calvano, Calzolari, Denicolò &amp; Pastorello</b> (<i>American Economic Review</i>): algoritmos de <b>Q-learning</b> descentralizados, entrenados únicamente para maximizar sus propias ganancias y <b>sin haber sido programados para coludir</b>, aprenden de forma autónoma a sostener precios supracompetitivos cercanos al nivel de monopolio.</p>
+      </div>
+      <div class="card" style="margin-top:0.55em">
+        <h4>Las estrategias punitivas que descubren</h4>
+        <ul class="tight" style="font-size:0.53em">
+          <li>Cuando un competidor baja su precio para capturar cuota, el rival ejecuta una <b>fase finita de castigo</b> —guerra de precios— seguida de un retorno gradual a la cooperación colusoria.</li>
+          <li>El resultado es robusto ante asimetrías de costos y demanda, variaciones en el número de competidores e incertidumbre de mercado.</li>
+        </ul>
+      </div>
+      <div class="card alert" style="margin-top:0.55em">
+        <h4>Implicación para el caso mexicano</h4>
+        <p style="font-size:0.54em">El marco legal vigente exige <b>acuerdos humanos</b>, y no tiene cauce para una colusión que no los requiere.</p>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> Tong (algorithmic pricing); Calvano et al. (AER); Tobin Center for antitrust.</div>
+
+  <aside class="notes"><b>Dos cosas.</b> (a) Discriminación de precios por historial de navegación — el caso del DVD: $26.24 → $22.74 (−13.3%) al borrar cookies — y el <i>drip pricing</i> con su respuesta legal de octubre de 2026.
+(b) El hallazgo de Calvano et al.: algoritmos de Q-learning <b>sin comunicación</b> aprenden a collusionar solos, con fases punitivas.
+<b>Contraste clave:</b> el derecho de competencia exige probar un acuerdo <i>humano</i>, y no tiene cauce para una colusión que no los requiere.</aside>
+  </section>
+
+<!-- ══════════════════════════ 23. EFECTO AMAZON + BANCO DE MÉXICO ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">El «Efecto Amazon» y su transmisión al caso mexicano</h2>
+  <div class="cols cols-55-45">
+    <div>
+      <div class="card">
+        <h4>El término (2017)</h4>
+        <p style="font-size:0.54em">Janet Yellen, entonces presidenta de la Reserva Federal, sugirió que la competencia de los minoristas en línea estaba comprimiendo los márgenes y explicando por qué la inflación permanecía baja.</p>
+      </div>
+      <div class="card" style="margin-top:0.55em">
+        <h4>Lo que Cavallo refutó (HBS / NBER)</h4>
+        <p style="font-size:0.54em">El impacto estructural <b>no es deprimir el nivel de precios una sola vez</b>: es transformar la formación de precios mediante dos mecanismos.</p>
+      </div>
+      <div class="cols cols-2" style="gap:0.5em;margin-top:0.55em">
+        <div class="card tinted" style="padding:0.55em 0.7em">
+          <h4>1 · Rigidez temporal</h4>
+          <p style="font-size:0.52em">2008–2010: los precios duraban de <b>7 a 9 meses</b>. Con algoritmos de rastreo competitivo: <b>3 a 3.5 meses</b>. La frecuencia mensual de ajustes sube del 14% al 31–34%.</p>
+          <p style="font-size:0.5em;margin-top:0.3em">En Amazon, la duración de precios publicados es <b>20% más corta</b>: obligó a Walmart, Best Buy, Kroger y Safeway a actualizar más seguido.</p>
+        </div>
+        <div class="card tinted" style="padding:0.55em 0.7em">
+          <h4>2 · Uniformidad espacial</h4>
+          <p style="font-size:0.52em">La dispersión entre códigos postales <b>prácticamente desapareció</b> en los bienes que compiten con Amazon.</p>
+          <p style="font-size:0.5em;margin-top:0.3em">Entre 2008 y 2017 las ventas en línea en EE. UU. pasaron del 3.6% al 9.5% del comercio minorista.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card alert">
+        <h4>Las dos implicaciones macro</h4>
+        <p style="font-size:0.54em"><b>Se debilita el canal de estímulo real:</b> en el marco neokeynesiano la rigidez de precios es la condición para que la política monetaria no sea neutral a corto plazo. Si los precios se ajustan casi instantáneamente, la expansión se traduce directo en inflación sin impacto real.</p>
+        <p style="font-size:0.54em;margin-top:0.4em"><b>Se acelera el traspaso (pass-through):</b> precios que cambian cada pocos días + estrategias uniformes a nivel nacional eliminan el aislamiento local. Tipo de cambio, gasolina y aranceles llegan más rápido y con mayor magnitud al consumidor.</p>
+      </div>
+      <div class="card" style="margin-top:0.55em;border-left:4px solid var(--unam-gold)">
+        <h4>Las tres preguntas que la literatura estadounidense no formula</h4>
+        <p style="font-size:0.54em">El Banco de México tiene por finalidad prioritaria <b>procurar la estabilidad del poder adquisitivo de la moneda</b> y mantiene como objetivo prioritario una inflación baja y estable. Pero México no fija su política monetaria en un entorno cerrado: la cuenta de activos externos (remesas e inversión) y el tipo de cambio la conectan con las condiciones monetarias de EE. UU.</p>
+        <ol style="font-size:0.5em;margin:0.4em 0 0;padding-left:1.2em;line-height:1.45">
+          <li>¿Se traspasó por el <b>canal cambiario</b> el efecto de la competencia en línea estadounidense, anulando parte del efecto de una depreciación del peso?</li>
+          <li>¿Tiene esa compresión un equivalente modesto en una economía donde el <b>consumo privado</b> es el componente más grande del PIB?</li>
+          <li>Si los precios flexibles de las plataformas coexisten con los rígidos de fabricantes integrados verticalmente como Apple o IKEA, ¿estos obligan al Banco de México a <b>sobreponderar sectores rígidos</b> en su meta de inflación subyacente?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> Cavallo (NBER w25138; HBS); Kansas City Fed (Gorodnichenko et al.); Banco de México, Ley del Banco de México art. 2º.</div>
+
+  <aside class="notes"><b>Diapositiva nueva del PDF Equipo 3 — es el aporte original.</b> Tres bloques:
+(1) El término (Yellen, 2017) y lo que Cavallo refutó: no es deprimir precios una vez, es transformar la formación de precios.
+(2) Los dos mecanismos: <b>rigidez temporal</b> (7–9 meses → 3–3.5 meses; en Amazon la duración de precios publicados es 20% más corta) y <b>uniformidad espacial</b> (la dispersión por código postal desaparece).
+(3) <b>Las tres preguntas que la literatura estadounidense no formula</b> — este es el punto fuerte de la presentación. Leerlas literalmente: canal cambiario, peso del consumo privado en el PIB, y la sobreponderación de sectores rígidos en la meta del Banco de México.
+<b>Si se va largo, aquí es donde se recorta:</b> dejar las dos implicaciones macro y las tres preguntas, y saltar el bloque del término.</aside>
+  </section>
+
+<!-- ══════════════════════════ 24. SECCIÓN 5 ══════════════════════════ -->
+<section class="section-slide" data-background-color="#0b3d91">
+  <div class="secnum">Sección 5</div>
+  <h2 class="slide-title">La respuesta del Estado mexicano</h2>
+  <div class="seclead">Aduanas, fiscalidad y relaciones laborales: regulación acompañante, no restricción</div>
+
+  <aside class="notes"><b>Divisor.</b> Transición: del diagnóstico al remedio. Los tres frentes: aduanas, fiscalidad y relaciones laborales.</aside>
+  </section>
+
+<!-- ══════════════════════════ 25. DE MINIMIS ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">El fin de la exención de minimis</h2>
+  <div class="cols cols-55-45">
+    <div>
+      <div class="lead" style="margin-bottom:0.4em"><b>El mecanismo:</b> Shein, Temu y AliExpress usaron umbrales aduaneros de <i>de minimis</i> —originalmente para agilizar el despacho de regalos o envíos personales de bajo valor— para enviar millones de paquetes individuales de fábrica al domicilio del consumidor <b>libres de aranceles e IVA</b>.</div>
+      <div class="cols cols-2" style="gap:0.5em">
+        <div class="card alert">
+          <h4>Subvaluación</h4>
+          <p style="font-size:0.52em">Declarar en la guía aérea un valor inferior al de mercado en ropa, calzado, electrónicos, juguetes y utensilios.</p>
+        </div>
+        <div class="card alert">
+          <h4>Envío fraccionado</h4>
+          <p style="font-size:0.52em">Dividir compras masivas en paquetes consecutivos, el mismo día y a la misma dirección, para no rebasar el umbral de <b>US$50</b>. El fenómeno <i>nenis</i>.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:0.55em">
+        <p style="font-size:0.54em"><b>El costo para México:</b> distorsión arancelaria severa contra la industria manufacturera nacional (acero, aluminio, calzado, textil, plásticos, vidrio y cerámica), que sí paga el IGI, cuotas compensatorias, normas oficiales y <b>16% de IVA</b>.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card tinted">
+        <h4>Desmonte global coordinado (2024–2026)</h4>
+        <ul class="tight" style="font-size:0.54em;margin-top:0.3em">
+          <li>De ~195 países, <b>75 a 80</b> (~40% global) ya eliminaron sus umbrales de exención o impusieron gravámenes directos a paquetes de bajo costo.</li>
+          <li>EE. UU. frenó la exención de la Sección 321 e impuso arancel de <b>de minimis del 54%</b> sobre envíos de origen chino.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:4px solid var(--unam-blue);margin-top:0.55em">
+        <h4>La reforma mexicana</h4>
+        <p style="font-size:0.52em">Regla 3.7.35, fr. I de las Reglas Generales de Comercio Exterior 2025. <b>Vigente desde el 15 de agosto de 2025.</b></p>
+        <table class="t" style="margin-top:0.4em">
+          <tr><th style="width:58%">Origen / monto</th><th style="width:42%">Tasa global</th></tr>
+          <tr><td>Países <b>sin tratado</b> (China)</td><td class="num"><span class="down">19%</span> &rarr; <span class="up">33.5%</span></td></tr>
+          <tr><td>Con tratado, valor &gt; US$117</td><td class="num">19%</td></tr>
+        </table>
+        <p style="font-size:0.5em;margin-top:0.4em">El cobro se retiene en la app o se liquida con la paquetería (DHL, FedEx, Estafeta, Correos de México). Exento de declaración adicional salvo superar US$2,500 o reclasificación como importación comercial para reventa.</p>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> SAT / Expansión; El Economista; MundoEjecutivo.</div>
+
+  <aside class="notes"><b>Mecanismo de <i>de minimis</i>:</b> umbral de US$50 y dos prácticas — subvaluación y envío fraccionado (fenómeno <i>nenis</i>).
+Desmonte global: 75–80 países (~40%); EE. UU. impone arancel de 54%.
+<b>Reforma mexicana:</b> Regla 3.7.35, vigente 15 de agosto de 2025 — tasa global 19% → 33.5% para países sin tratado.</aside>
+  </section>
+
+<!-- ══════════════════════════ 26. ARITMÉTICA FISCAL ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">La aritmética fiscal: qué cambió para el pedido de 40 dólares</h2>
+  <div class="cols cols-55-45">
+    <div>
+      <div class="lead" style="margin-bottom:0.4em">La reforma no es solamente un cambio de comercio exterior: es un cambio en la <b>estructura de la tributación indirecta</b>. El IVA mexicano es del 16% desde 2014, con tasa general en todo el país.</div>
+      <table class="t" style="font-size:0.54em">
+        <tr><th style="width:40%">Concepto</th><th style="width:22%">Antes</th><th style="width:22%">Después</th><th style="width:16%">Cambio</th></tr>
+        <tr><td>Valor de la mercancía</td><td class="num">$40</td><td class="num">$40</td><td class="num same">—</td></tr>
+        <tr><td>Tasa global simplificada</td><td class="num">19%</td><td class="num">33.5%</td><td class="num up">+14.5 p.p.</td></tr>
+        <tr><td>Impuesto global sobre el valor</td><td class="num">$7.60</td><td class="num">$13.40</td><td class="num up">+$5.80</td></tr>
+        <tr><td>IVA (16%) sobre el valor</td><td class="num">$6.40</td><td class="num">$6.40</td><td class="num same">—</td></tr>
+        <tr class="tot"><td>Carga fiscal total</td><td class="num">$14.00</td><td class="num">$19.80</td><td class="num up">+41.4%</td></tr>
+        <tr class="tot"><td>Como % del valor</td><td class="num">35.0%</td><td class="num">49.5%</td><td class="num up">+14.5 p.p.</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="card alert">
+        <h4>Pero el efecto relevante no es el del comprador</h4>
+        <p>Es el del <b>incumplimiento del flujo de la cadena</b>.</p>
+        <p>La aduana puede reclasificar una operación como <b>importación comercial para reventa</b> cuando la frecuencia y el volumen lo justifican. El paquete ya no llega como envío personal al hogar, sino como importación comercial que debe pagar aranceles ordinarios y ser registrada por la plataforma.</p>
+      </div>
+      <div class="card goldline" style="margin-top:0.6em">
+        <h4>El sujeto que cambia de condición</h4>
+        <p>No es el comprador: <b>es el vendedor de la plataforma</b>.</p>
+        <p>Y en un ecosistema donde el 85% del marketplace está concentrado en dos empresas, la capacidad de los vendedores individuales de absorber o trasladar el costo —o de dejar de vender en México— es <b>muy desigual</b>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> SAT (Regla 3.7.35); Expansión; cálculo ilustrativo con tasa global simplificada e IVA general.</div>
+
+  <aside class="notes"><b>Diapositiva nueva del PDF Equipo 3.</b> Aquí hay que hacer la cuenta en voz alta para que se entienda, no leer la tabla.
+Pedido de US$40: antes 19% global + 16% IVA = $14.00 de carga fiscal (35.0% del valor); después 33.5% + 16% = $19.80 (49.5%). <b>+41.4% de carga fiscal</b>.
+<b>Pero el remate es lo importante:</b> el efecto relevante no es el del comprador, es el del <b>incumplimiento del flujo de la cadena</b>. La aduana puede reclasificar la operación como importación comercial para reventa, y entonces <b>el sujeto que cambia de condición no es el comprador sino el vendedor de la plataforma</b> — que además está en un mercado con 85% concentrado en dos empresas, donde su capacidad de absorber o trasladar el costo es muy desigual.</aside>
+  </section>
+
+<!-- ══════════════════════════ 27. BASE IMPONIBLE / DST ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">El hueco de la discusión fiscal: por qué un arancel no alcanza</h2>
+  <div class="cols cols-2">
+    <div>
+      <div class="card alert">
+        <h4>Lo que el arancel NO graba</h4>
+        <p>Un arancel grava <b>el movimiento de las mercancías</b>. No graba la actividad que las plataformas desarrollan en el país:</p>
+        <p style="font-size:0.54em;margin-left:0.8em">intermediación · publicidad · financiación · logística</p>
+        <p>Ni la base imponible que más ha crecido: los <b> servicios que prestan al mercado mexicano</b> —transporte bajo demanda, entrega de alimentos, medios—, que según el VABCOEL son el <b>51.3%</b> del valor agregado del sector.</p>
+      </div>
+      <div class="card" style="margin-top:0.6em;border-left:4px solid var(--unam-blue)">
+        <h4>El instrumento disponible: el impuesto a servicios digitales (DST)</h4>
+        <p>Un gravamen sobre los <b>ingresos brutos</b> de las grandes plataformas por venta de espacio publicitario, prestación de intermediación en línea y venta de datos de usuarios.</p>
+      </div>
+    </div>
+    <div>
+      <div class="cols cols-2" style="gap:0.5em">
+        <div class="card tinted" style="padding:0.55em 0.7em">
+          <h4>¿Por qué importa el diseño?</h4>
+          <p style="font-size:0.51em"><b>Primero:</b> es de ingresos brutos, no de beneficios — se aplica sin estimar la rentabilidad, ventaja enorme con precios de transferencia opacos.</p>
+          <p style="font-size:0.51em;margin-top:0.3em"><b>Segundo:</b> la recaudación es proporcional a la demanda mexicana: una plataforma que crece en México paga más, sin importar dónde se origine el beneficio.</p>
+        </div>
+        <div class="card" style="padding:0.55em 0.7em">
+          <h4>Tres caminos internacionales</h4>
+          <p style="font-size:0.51em"><b>UE (2021):</b> mecanismo de destino — los grandes grupos deben informar las operaciones de sus intermediarios — como preludio de un gravamen permanente.</p>
+          <p style="font-size:0.51em;margin-top:0.3em"><b>India:</b> impuesto de igualación sobre las ganancias de las unidades de servicio en el extranjero.</p>
+          <p style="font-size:0.51em;margin-top:0.3em"><b>~50 jurisdicciones:</b> gravámenes directos del 1.5% al 7.5% sobre ingresos por servicios digitales, casi todos declarados temporales.</p>
+        </div>
+      </div>
+      <div class="card good" style="margin-top:0.6em">
+        <h4>El argumento para México</h4>
+        <p>Si el 85% del mercado de vendedores está en dos plataformas y los servicios digitales son el 51.3% del valor agregado, entonces la base imponible que el Erario no captura —el <b>margen de intermediación y la publicidad</b>— es exactamente la que permitió ampliar el comercio minorista.</p>
+        <p style="font-size:0.52em;margin-top:0.4em"><b>No es una medida contra el comercio electrónico:</b> es una medida para internalizar en la fiscalidad interna una actividad que el sector privado realiza con una intensidad que la estructura arancelaria no alcanza a gravar. La UE ya hizo el paso previo: designó a Shein y Temu como plataformas muy grandes (Reglamento DMA).</p>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> Reglamento (UE) 2022/2065 (DMA); análisis de impuestos sobre servicios digitales; VABCOEL 2025.</div>
+
+  <aside class="notes"><b>Diapositiva nueva del PDF Equipo 3 — propuesta de política.</b> El punto: un arancel grava el <b>movimiento de mercancías</b>, no la actividad que las plataformas desarrollan en el país (intermediación, publicidad, financiación, logística) ni los servicios que son el 51.3% del valor agregado.
+<b>El instrumento:</b> el impuesto a servicios digitales (DST). Dos características de diseño: es de <b>ingresos brutos</b> (no hay que estimar rentabilidad — enorme ventaja con precios de transferencia opacos) y es <b>proporcional a la demanda mexicana</b>.
+<b>Los tres caminos internacionales:</b> UE 2021 (mecanismo de destino, preludio del gravamen permanente; además designó a Shein y Temu como plataformas muy grandes bajo el DMA), India (impuesto de igualación), y ~50 jurisdicciones con gravámenes del 1.5% al 7.5%, casi todos temporales.
+<b>El argumento final para México:</b> no es una medida contra el comercio electrónico, es una medida para internalizar en la fiscalidad interna una actividad que la estructura arancelaria no alcanza a gravar.</aside>
+  </section>
+
+<!-- ══════════════════════════ 28. ECONOMÍA LABORAL ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Gig economy: de «socio independiente» a subordinación algorítmica</h2>
+  <div class="cols cols-55-45">
+    <div>
+      <div class="lead" style="margin-bottom:0.4em">Durante más de una década las plataformas clasificaron a conductores y repartidores como <b>«socios independientes»</b>, argumentando que la ausencia de horario fijo eliminaba la subordinación laboral. En realidad, el modelo les <b>transfería a los trabajadores los costos fijos de capital y los de seguridad social</b>, mientras ejercían control estricto mediante supervisión tecnológica y gestión algorítmica: asignación automatizada de viajes, tarifas dinámicas unilaterales y penalizaciones por rechazar pedidos.</div>
+      <div class="card" style="border-left:4px solid var(--unam-blue)">
+        <h4>La reforma: artículo 291-A y correlativos de la LFT</h4>
+        <p style="font-size:0.53em">Publicada en <b>diciembre de 2024</b>, vigente desde <b>junio de 2025</b> con piloto del IMSS. Beneficia a ~<b>700,000 personas</b> que desempeñan labores físicas bajo supervisión tecnológica.</p>
+      </div>
+      <div class="card good" style="margin-top:0.5em">
+        <h4>El principio: subordinación por tiempo efectivo de conexión</h4>
+        <p style="font-size:0.53em">La legislación preserva la <b>libertad</b> del trabajador de decidir si se conecta y cuándo —permitiendo la multiconexión entre aplicaciones— pero establece que durante el lapso efectivo en que está conectado prestando servicio, ese tiempo se contabiliza como <b>trabajo subordinado</b>.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h4>Esquema dual por umbral de ingresos</h4>
+        <div style="font-size:0.53em;margin-top:0.3em">
+          <p><b>≥ 1 salario mínimo mensual (CDMX) en una misma plataforma → trabajador formal subordinado:</b></p>
+          <ul class="tight" style="font-size:0.5em;margin-top:0.3em">
+            <li>La plataforma asume la obligación patronal: inscripción y cuotas al <b>IMSS</b> y aportaciones al <b>INFONAVIT</b></li>
+            <li>A cambio obtiene <b>aguinaldo</b>, indemnización y pago en un plazo no mayor a una semana</li>
+            <li><b>PTU</b> al acumular 288 horas anuales</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card tinted" style="margin-top:0.5em">
+        <h4>Primera regulación de transparencia algorítmica en México</h4>
+        <ul class="tight" style="font-size:0.5em;margin-top:0.25em">
+          <li>Registro de modelos de contrato ante el Centro Federal de Conciliación y Arbitraje</li>
+          <li>Transparencia de las <b>reglas del algoritmo</b> que asigna el trabajo</li>
+          <li>Prohibido cobrar a los trabajadores por usar la aplicación</li>
+          <li>Desconexión sólo por fraude o seguridad; <b>toda queja debe atenderla una persona, no un robot</b></li>
+        </ul>
+        <p style="font-size:0.48em;color:var(--muted);margin-top:0.35em">Implementada sin alterar el régimen fiscal de ISR e IVA: sin incremento en la carga tributaria del trabajador.</p>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> STPS; DOF (dic. 2024); El Economista; KPMG.</div>
+
+  <aside class="notes"><b>El punto:</b> la plataforma transfería al trabajador todos los costos fijos de capital y los de seguridad social, mientras conservaba el control algorítmico (asignación automatizada, tarifas dinámicas unilaterales, penalizaciones por rechazar pedidos).
+<b>La reforma (art. 291-A LFT, dic. 2024, vigente jun. 2025):</b> protege a ~700,000 personas. El principio: subordinación por <b>tiempo efectivo de conexión</b> — se preserva la libertad de decidir si y cuándo conectarse, pero ese tiempo cuenta como trabajo subordinado.
+<b>El umbral:</b> ≥ 1 salario mínimo mensual en una misma plataforma → IMMSS, INFONAVIT, aguinaldo y PTU a 288 horas.
+<b>Avance histórico:</b> primera regulación mexicana de transparencia algorítmica, con revisión humana y prohibición de desconexión automática.</aside>
+  </section>
+
+<!-- ══════════════════════════ 29. MAPA DE POLÍTICA ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Mapa de política económica (2024–2026)</h2>
+  <table class="t" style="font-size:0.46em">
+    <tr>
+      <th style="width:18%">Ámbito</th>
+      <th style="width:28%">Instrumento</th>
+      <th style="width:27%">Falla de mercado abordada</th>
+      <th style="width:27%">Impacto</th>
+    </tr>
+    <tr>
+      <td><b>Competencia</b></td>
+      <td>Investigación COFECE, expediente IEBC-001-2022 (resolución sept. 2025)</td>
+      <td>Concentración duopólica (85%), opacidad algorítmica en el Buy Box, tying logístico, membresías con streaming</td>
+      <td>Barriers identificadas formalmente; <b>sin multas ni desincorporación</b> por falta de consenso sobre la pérdida de eficiencias</td>
+    </tr>
+    <tr>
+      <td><b>Comercio exterior</b></td>
+      <td>Reforma Regla 3.7.35 de las RGCE 2025 (SAT), vigente 15-ago-2025</td>
+      <td>Arbitraje fiscal del umbral de minimis (US$50), subvaluación y fraccionamiento de paquetes</td>
+      <td>Tasa global por paquetería de <b>19% a 33.5%</b> sin tratado; 19% sobre US$117 con tratado</td>
+    </tr>
+    <tr>
+      <td><b>Trabajo</b></td>
+      <td>Reforma a la LFT, art. 291-A (dic. 2024), vigente jun./jul. 2025</td>
+      <td>Precarización y transferencia de riesgos a ~700,000 trabajadores bajo supervisión algorítmica</td>
+      <td>Relación laboral formal al alcanzar salario mínimo (IMSS, INFONAVIT, aguinaldo); PTU a 288 h; transparencia algorítmica con revisión humana</td>
+    </tr>
+    <tr>
+      <td><b>Consumo</b></td>
+      <td>Iniciativa de reforma al art. 76 Bis 1, fr. VIII, LFPC (oct. 2026)</td>
+      <td>Asimetría de información conductual: precios por goteo y cargos ocultos en el pago en línea</td>
+      <td>Prohibición de incorporar o revelar cargos obligatorios en etapas posteriores que alteren el precio inicial</td>
+    </tr>
+  </table>
+  <div class="card goldline" style="margin-top:0.7em">
+    <p style="font-size:0.56em"><b>Una línea coherente:</b> en los tres frentes el Estado no restringió la actividad — <b>la gravó, la formalizó y la transparentó</b>. La reforma aduanera elevó la tasa sin cerrar la frontera; la reforma laboral reconoció la relación sin perder la flexibilidad horaria; la iniciativa de protección al consumidor ataca la opacidad de los cargos sin prohibir la venta en línea.</p>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> COFECE; SAT; STPS; Congreso de la Unión (iniciativa LFPC).</div>
+
+  <aside class="notes"><b>Cuadro de cierre de la sección.</b> Cuatro ámbitos, cuatro instrumentos, cuatro fallas de mercado.
+<b>El hilo conductor (franja inferior):</b> en los tres frentes el Estado <b>no restringió</b> la actividad — la gravó, la formalizó y la transparentó. Es una línea coherente, y es la que permite conservar los beneficios de eficiencia que la propia COFECE considerados eficientes.
+<b>Pero tiene un límite</b> que la siguiente sección desarrolla: los tres instrumentos atacan síntomas.</aside>
+  </section>
+
+<!-- ══════════════════════════ 30. SECCIÓN 6 ══════════════════════════ -->
+<section class="section-slide" data-background-color="#0b3d91">
+  <div class="secnum">Sección 6</div>
+  <h2 class="slide-title">Limitaciones y debate abierto</h2>
+  <div class="seclead">Un trabajo que sólo describe la concentración y la respuesta del Estado no completa su tarea</div>
+
+  <aside class="notes"><b>Divisor — y es una sección fuerte, no un trámite.</b> Enunciar el criterio: un trabajo que sólo describe la concentración y la respuesta del Estado no completa su tarea.</aside>
+  </section>
+
+<!-- ══════════════════════════ 31. LIMITACIONES DE LA MEDICIÓN ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Tres limitaciones de la medición</h2>
+  <div class="cols cols-3" style="gap:0.7em">
+    <div class="card alert">
+      <div class="badge">1</div>
+      <h4>Las cifras son revisables</h4>
+      <p>El VABCOEL depende de un sistema de clasificación sectorial que se revisa periódicamente, y las estimaciones se corrigen cuando el INEGI incorpora información de nuevas fuentes o reclasifica actividades.</p>
+      <p style="font-size:0.52em;color:var(--muted);margin-top:0.4em">Comparar una serie de años sin considerar cambios metodológicos puede llevar a conclusiones sobre dinámicas de crecimiento que son en realidad <b>artefactos de la clasificación</b>.</p>
+    </div>
+    <div class="card alert">
+      <div class="badge">2</div>
+      <h4>El alcance del 85%</h4>
+      <p>El 85% que la COFECE atribuyó a Amazon y Mercado Libre se refiere a los <b>vendedores en marketplaces digitales</b> — no a todo el comercio minorista mexicano, ni a todas las ventas en línea, ni al total del comercio electrónico.</p>
+      <p style="font-size:0.52em;color:var(--muted);margin-top:0.4em">Presentado sin esa precisión —como circula en la discusión pública— el número sugiere un monopolio que la economía mexicana no tiene: hay un minorista físico que sigue generando la mayor parte del empleo comercial.</p>
+    </div>
+    <div class="card alert">
+      <div class="badge">3</div>
+      <h4>El problema causal</h4>
+      <p>El documento documenta que el comercio electrónico creció 23.3% en 2020, pero también que <b>la tendencia se revirtió</b> hacia 2022–2024.</p>
+      <p style="font-size:0.52em;color:var(--muted);margin-top:0.4em">Una parte substancial de ese crecimiento no es un desplazamiento permanente de la demanda, sino una <b>sustitución forzada por el lockdown</b> que se revirtió al reabrir las tiendas físicas.</p>
+    </div>
+  </div>
+  <div class="card goldline" style="margin-top:0.9em">
+    <p style="font-size:0.58em"><b>Consecuencia práctica:</b> cualquier proyección que tome el dato de 2020 como tendencia estructural estará <b>sobreestimando el fenómeno</b>.</p>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> Sistema de Cuentas Nacionales de México (INEGI); COFECE; El Economista.</div>
+
+  <aside class="notes"><b>Las tres:</b> (1) las cifras son revisables — cambios metodológicos del INEGI pueden ser leídos como dinámicas de crecimiento; (2) el 85% se refiere a <b>vendedores en marketplaces</b>, no a todo el comercio minorista — presentarlo sin esa precisión sugiere un monopolio que México no tiene; (3) el problema causal — el dato de 2020 fue sustitución forzada por el lockdown, y usarlo como tendencia estructural sobreestima el fenómeno.
+<b>La consecuencia práctica (franja inferior):</b> cualquier proyección que tome 2020 como tendencia estructural estará sobreestimando el fenómeno.</aside>
+  </section>
+
+<!-- ══════════════════════════ 32. DEBATE SOBRE EL BIENESTAR ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">El debate sobre el bienestar: la tensión que la COFECE no pudo zanjar</h2>
+  <div class="cols cols-3" style="gap:0.7em">
+    <div class="card">
+      <h4 style="color:var(--ok)">A favor de intervenir</h4>
+      <p>La estructura de mercado que produce precios bajos hoy puede volverse <b>irreversiblemente restrictiva mañana</b>, y el poder de una plataforma no se corrige sola.</p>
+      <p style="font-size:0.52em;color:var(--muted);margin-top:0.4em">La eficiencia actual no garantiza la competencia futura.</p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--warn)">En contra</h4>
+      <p>Las mismas prácticas que levantan barreras de entrada son las que generan las <b>eficiencias de logística y conveniencia</b> de las que se benefician millones de consumidores y las MiPyMEs.</p>
+      <p style="font-size:0.52em;color:var(--muted);margin-top:0.4em">Es el argumento que el Pleno tomó en cuenta al no sancionar.</p>
+    </div>
+    <div class="card">
+      <h4>Competencia internacional</h4>
+      <p>Imponer estándares altos a las plataformas que operan en México podría <b>desincentivar su inversión local</b> o empujarlas a operar desde jurisdicciones con requisitos más flexibles.</p>
+      <p style="font-size:0.52em;color:var(--muted);margin-top:0.4em">El costo regulatorio puede quintarse con la operación.</p>
+    </div>
+  </div>
+  <div class="card tinted" style="margin-top:1em">
+    <h4>Por qué este trabajo no resuelve la tensión</h4>
+    <p>No se puede resolver con los datos disponibles. Lo que puede hacerse —y lo que este trabajo hace— es <b>explicitar cuál es el dilema</b>.</p>
+    <p>Las tres preguntas de la sección de conclusiones se dejan explícitas: el precio de la eficiencia frente al riesgo de dependencia.</p>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> COFECE (resolución sept. 2025); análisis de impuestos sobre servicios digitales.</div>
+
+  <aside class="notes"><b>El dilema que la COFECE no pudo zanjar.</b> Tres argumentos: a favor de intervenir (la estructura puede volverse irreversiblemente restrictiva), en contra (las mismas prácticas generan las eficiencias de las que se benefician consumidores y MiPyMEs — el argumento que el Pleno tomó en cuenta), y competencia internacional (estándares altos pueden desincentivar inversión local o empujar la operación a jurisdicciones más flexibles).
+<b>Por qué el documento no lo resuelve:</b> no se puede resolver con los datos disponibles. Lo que sí puede hacerse —y es lo que hace— es <b>explicitar cuál es el dilema</b>.</aside>
+  </section>
+
+<!-- ══════════════════════════ 33. LO QUE NO SE AFIRMA ══════════════════════════ -->
+<section>
+  <h2 class="slide-title">Dos afirmaciones que este trabajo evita deliberadamente</h2>
+  <div class="cols cols-2" style="margin-top:0.5em;gap:1em">
+    <div class="card alert">
+      <div class="badge">1</div>
+      <h4>«El comercio electrónico crea bienestar»</h4>
+      <p>Lo que la evidencia documenta es que <b>reasigna el excedente</b> desde los minoristas tradicionales con costos fijos altos hacia los consumidores y hacia las plataformas.</p>
+      <p>El efecto neto sobre el bienestar total es una <b>pregunta abierta</b> que depende de cómo se mida la externalidad de los costos de transacción.</p>
+    </div>
+    <div class="card alert">
+      <div class="badge">2</div>
+      <h4>«La regulación reciente resolvió el problema de la concentración»</h4>
+      <p>Los tres instrumentos analizados —la reforma aduanera, la reforma laboral y la iniciativa de protección al consumidor— atacan <b>síntomas</b>: el fiscal, el laboral y el de transparencia de precios.</p>
+      <p>Ninguno ataca el <b>mecanismo de fondo</b>: la integración vertical y el control de los datos que hacen las plataformas dueñas de la infraestructura de la que dependen sus competidores.</p>
+    </div>
+  </div>
+  <div class="card goldline" style="margin-top:1em">
+    <p style="font-size:0.6em;text-align:center">Esta sección no es una concesión: es el control de calidad del argumento. Reconocer lo que la evidencia no sostiene es lo que separa una investigación de una defensa.</p>
+  </div>
+
+  <aside class="notes"><b>Control de calidad del argumento.</b> Decir explícitamente que esto es una <b>sección de honestidad metodológica</b>, no una concesión.
+(1) El comercio electrónico <b>no crea</b> bienestar: lo que documenta la evidencia es que reasigna el excedente desde los minoristas tradicionales hacia consumidores y plataformas; el efecto neto total es pregunta abierta.
+(2) La regulación reciente <b>no resolvió</b> la concentración: los tres instrumentos atacan síntomas (fiscal, laboral, transparencia) y ninguno ataca el mecanismo de fondo — la integración vertical y el control de los datos.</aside>
+  </section>
+
+<!-- ══════════════════════════ 34. CONCLUSIONES ══════════════════════════ -->
+<section class="dense">
+  <h2 class="slide-title">Conclusiones: tres hechos y una contradicción</h2>
+  <div class="cols cols-2" style="gap:0.8em">
+    <div>
+      <div class="card">
+        <h4>Primero · Ya no es un fenómeno menor</h4>
+        <p>Es el <b>sexto sector</b> más grande de la economía, con el 6.9% del PIB, creciendo a tasas reales casi seis veces superiores a las de la economía nacional.</p>
+        <p>Pero ese crecimiento convive con una <b>exclusión demográfica persistente</b>: 33.2% frente al 71.3% de la OCDE; 39.2% urbano contra 19.1% rural.</p>
+        <p style="font-size:0.52em;color:var(--muted);margin-top:0.35em">El problema del país no es que el comercio electrónico funcione mal, sino que funciona <b>sólo para una parte de la población</b>.</p>
+      </div>
+      <div class="card" style="margin-top:0.55em">
+        <h4>Segundo · El poder tiene origen microeconómico, no místico</h4>
+        <p>Los efectos de red cruzados de Rochet y Tirole, la estructura de costos de la oferta y la distribución a costo marginal cero de la Teoría de la Agregación explican por qué la concentración es <b>endógena</b> y no el resultado de conductas deliberadas.</p>
+        <p>La misma economía que produce los precios bajos produce también las barreras que los hacen frágiles.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h4>Tercero · La respuesta del Estado ha sido de regulación acompañante</h4>
+        <p>En los tres frentes el Estado <b>no restringió</b> la actividad: la gravó, la formalizó y la transparentó.</p>
+        <p>Es una línea coherente, y es la que permite conservar los beneficios de eficiencia que la propia COFECE considerados eficientes. <b>Pero tiene un límite:</b> los tres instrumentos atacan síntomas y ninguno ataca el mecanismo de fondo.</p>
+      </div>
+      <div class="card good" style="margin-top:0.55em">
+        <h4>Y queda una contradicción sin resolver</h4>
+        <p>El mismo estudio de la COFECE que confirmó las barreras también confirmó que no era posible acordar cómo tratarlas, y cerró sin sanciones.</p>
+        <p>¿La integración de las plataformas digitales es el <b>precio de la eficiencia</b> que goza el consumidor mexicano, o una forma de <b>dependencia</b> que el Estado debería reducir?</p>
+        <p style="font-size:0.52em;color:var(--muted);margin-top:0.35em">Lo que este trabajo muestra es que el Estado ya optó por una respuesta provisional: <b>regular, formalizar y transparentar en lugar de restringir</b>. Si esa elección se sostiene en el tiempo es, justamente, lo que queda por demostrar.</p>
+      </div>
+    </div>
+  </div>
+  <div class="srcline"><b>Fuentes:</b> INEGI; OCDE; COFECE; Khan; Calvano et al.; Cavallo (NBER); SAT; STPS.</div>
+
+  <aside class="notes"><b>Cerrar con los cuatro elementos, en orden.</b>
+<b>Primero:</b> ya no es un fenómeno menor (6.9% del PIB, 6× el crecimiento real) — pero el problema del país no es que funcione mal, sino que funciona <b>sólo para una parte de la población</b>.
+<b>Segundo:</b> el poder tiene origen microeconómico identificable, no místico. La concentración es endógena. Son dos caras del mismo objeto.
+<b>Tercero:</b> la respuesta del Estado ha sido de <b>regulación acompañante</b>: gravó, formalizó y transparentó. Coherente, pero con un límite.
+<b>Y queda la contradicción sin resolver:</b> ¿la integración de las plataformas es el precio de la eficiencia que goza el consumidor mexicano, o una forma de dependencia que el Estado debería reducir? Lo que el Estado ya optó fue regular, formalizar y transparentar en lugar de restringir. <b>Si esa elección se sostiene en el tiempo es lo que queda por demostrar.</b>
+<b>Ése es el remate: dejar la pregunta abierta y pasar a la diapositiva de cierre.</b></aside>
+  </section>
+
+<!-- ══════════════════════════ 35. CIERRE ══════════════════════════ -->
+<section class="section-slide" data-background-color="#0b3d91">
+  <div class="secnum">Gracias</div>
+  <h2 class="slide-title">Preguntas y comentarios</h2>
+  <div class="seclead" style="max-width:26em">La economía digital no cambió sólo <i>cómo</i> vendemos: cambió la estructura de costos, la formación de precios y la relación entre el capital y el trabajo. El Estado mexicano respondió <b>regular, formalizar y transparentar</b> — y la pregunta de si esa elección se sostiene en el tiempo es, justamente, lo que queda por demostrar.</div>
+  <div style="margin-top:2em;display:flex;gap:2.4em;flex-wrap:wrap;font-size:0.5em;color:#cdd9ee">
+    <div><span style="color:var(--unam-gold);text-transform:uppercase;letter-spacing:0.12em;font-size:0.9em;display:block">Equipo 3</span>Arcos Barragán Yael Edrei · Hernández Rosas Jafet Daniel · Ortiz Giles Diego Antonio</div>
+    <div><span style="color:var(--unam-gold);text-transform:uppercase;letter-spacing:0.12em;font-size:0.9em;display:block">Materia</span>Introducción a la Economía · Grupo 16 · 2027-1</div>
+    <div><span style="color:var(--unam-gold);text-transform:uppercase;letter-spacing:0.12em;font-size:0.9em;display:block">Profesor</span>Lic. Carlos Aurelio Bernal Esponda</div>
+  </div>
+
+  <aside class="notes"><b>Dejar la pregunta abierta en pantalla y abrir turno de preguntas.</b>
+<b>Preguntas de respaldo:</b>
+(i) Si la COFECE no sancionó, ¿el Estado prefirió gravar en vez de restringir — es la línea correcta o sólo la que resulta políticamente viable?
+(ii) ¿Un DST no terminaría frenando la inversión que el documento celebrates?
+(iii) Si la evidencia no permite afirmar que el comercio electrónico cree bienestar, ¿qué puede afirmarse? (respuesta: que reasigna excedente y que la eficiencia y la barrera son el mismo objeto)</aside>
+  </section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: 'c/t',
+  width: 1280,
+  height: 720,
+  margin: 0.06,
+  minScale: 0.2,
+  maxScale: 2.0,
+  transition: 'slide',
+  transitionSpeed: 'fast',
+  backgroundTransition: 'fade',
+  plugins: [ RevealNotes, RevealHighlight ]
+});
+</script>
+</body>
+</html>
