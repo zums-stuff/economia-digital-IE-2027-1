@@ -95,9 +95,32 @@ git revert <commit>        # revertir un commit concreto
 - Formato 1280×720 (16:9) con escalado automático a cualquier pantalla.
 - El fondo azul de los divisores de sección usa `data-background-color`
   nativo de Reveal, no CSS propio.
-- Las clases CSS `.badge` (número circular) y `td.num` (celda numérica) están
-  separadas a propósito: una regla `.num` compartida producía celdas de tabla
-  de 19 px de ancho.
+
+### Diagramas SVG
+
+Las 23 diapositivas con visualización usan **SVG nativo embebido en el HTML**
+(sin imágenes externas): se ven nítidas a cualquier resolución y se editan
+con un editor de texto.
+
+Dos reglas del DOM que conviene respetar al editar un `<svg>`:
+
+1. **Nunca usar `<sub>` / `<sup>` dentro de `<text>`.** Son etiquetas HTML y
+   rompen el parser del SVG: el elemento se cierra antes de tiempo y el resto
+   del diagrama se apila fuera de la caja. Usar
+   `<tspan baseline-shift="sub" font-size="0.75em">b</tspan>`.
+2. **El `fill` de un `<text>` va en una clase, no como atributo.** En SVG,
+   `fill="#fff"` es una *presentation attribute* y cualquier regla CSS con
+   `fill` la pisa — el texto quedaba invisible sobre fondos oscuros. Las
+   clases de color son `.dg-tiny.w` (blanco), `.b` (azul), `.r` (rojo),
+   `.g` (verde), `.y` (dorado), combinables con `.dg-label` / `.dg-sub`.
+
+Además, el CSS fuerza `display: flex` en las diapositivas (para que el
+contenido llene la pantalla). Por eso la regla de flex excluye al SVG:
+
+```css
+.reveal .slides section > *:not(svg) { flex: 0 0 auto; }
+.reveal .slides svg.diagram { flex: 1 1 auto; align-self: stretch; }
+```
 
 ## Figuras
 
@@ -109,4 +132,4 @@ hay que regenerarlas:
 - `fig-cofece-meli.png` — concentración del 85% y ecosistema de Mercado Libre
 
 El PDF del Equipo 3 ya no incluye la figura `fig-amazon-efecto.png` (el
-contenido de Cavallo se presenta en texto y tarjetas), por eso no se copia aquí.
+contenido de Cavallo se presenta en diagrama y tarjetas), por eso no se copia aquí.
