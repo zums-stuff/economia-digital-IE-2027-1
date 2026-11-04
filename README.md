@@ -54,24 +54,35 @@ las restricciones de `file://` en algunos navegadores.
 
 ## Publicar en GitHub Pages
 
-El deck es estático y no tiene build step: se sube tal cual.
+**Ya está publicado en:**
+
+### https://zums-stuff.github.io/economia-digital-IE-2027-1/
+
+El deck vive en el repo público [`zums-stuff/economia-digital-IE-2027-1`](https://github.com/zums-stuff/economia-digital-IE-2027-1),
+servido por GitHub Pages desde la rama `main`, raíz `/`.
+
+> Nota: la presentación **no** se publica desde el vault `Obsidian-Brain` (que es
+> privado y en el plan actual no admite Pages). Se mantiene como repo aparte
+> para que la URL sea pública y accesible para exponer.
+
+### Publicar cambios
+
+Hay un script que hace todo (add + commit + push) desde esta carpeta:
 
 ```bash
-cd Presentacion
-git init
-git add .
-git commit -m "Presentación: Economía Digital y Comercio Electrónico"
-git branch -M main
-git remote add origin https://github.com/<usuario>/<repo>.git
-git push -u origin main
+./publicar.sh            # sube los cambios
+./publicar.sh --check    # sólo dice si hay cambios pendientes
 ```
 
-Luego en el repo: **Settings → Pages → Source: Deploy from a branch →
-`main` / `(root)`**. La URL queda en
-`https://<usuario>.github.io/<repo>/`.
+GitHub Pages tarda ~1 minuto en reflejar los cambios.
 
-Si se prefiere una subcarpeta en un repo existente, basta con copiar
-`index.html` e `img/` a la raíz (o a la carpeta donde apunte Pages).
+### Deshacer / revertir
+
+```bash
+git log --oneline          # ver historial
+git revert <commit>        # revertir un commit concreto
+./publicar.sh              # publicar la reversión
+```
 
 ## Notas técnicas
 
